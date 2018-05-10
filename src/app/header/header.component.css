@@ -1,0 +1,11 @@
+/* http://cssreference.io/ */
+.container {
+    display: flex;
+    flex-direction: row; /* row | row-reverse | column | column-reverse */
+    flex-wrap: wrap; /* nowrap | wrap | wrap-reverse */
+    justify-content: space-around; /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+    align-items: center; /* stretch | flex-start | flex-end | center | baseline  */
+}
+a {
+    margin-left: 10px;
+}
