@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+
 import { MaterialModule } from './material.module';
 
 
@@ -16,6 +19,8 @@ import { MaterialModule } from './material.module';
     BrowserModule,
     MaterialModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot()
   ],
   declarations: [
     AppComponent,

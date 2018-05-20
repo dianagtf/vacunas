@@ -5,8 +5,9 @@
         </span>
 
         <span>Welcome to {{ title }}!</span>
+
+        <nav class="navigation">
+            <a [routerLink]="['/children']">Children</a>
+        </nav>
     </mat-toolbar>
 </div>
-<nav class="navigation">
-    <a [routerLink]="['/pageNotFound']">Page Not Found</a>
-</nav>
