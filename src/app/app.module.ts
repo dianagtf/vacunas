@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 
 import { MaterialModule } from './material.module';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -20,7 +20,8 @@ import { MaterialModule } from './material.module';
     MaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CalendarModule.forRoot()
+    CalendarModule.forRoot(),
+    FlexLayoutModule
   ],
   declarations: [
     AppComponent,
