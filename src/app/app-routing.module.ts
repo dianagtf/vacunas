@@ -3,12 +3,14 @@ import { Routes, RouterModule, ChildActivationEnd } from '@angular/router';
 
 import { ChildrenComponent } from './children/children.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { VaccineComponent} from './vaccine/vaccine.component';
 
 import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 
 const appRoutes: Routes = [
   { path: 'children', component: ChildrenComponent },
   { path: 'calendar', component: CalendarComponent },
+  { path: 'vaccine', component: VaccineComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -17,5 +19,5 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  static components = [PageNotFoundComponent, ChildrenComponent, CalendarComponent];
+  static components = [PageNotFoundComponent, ChildrenComponent, CalendarComponent, VaccineComponent];
 }

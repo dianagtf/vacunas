@@ -7,10 +7,19 @@
     </mat-card-header>
     <mat-card>
       <div fxLayout="row" fxFlex>
-        <app-calendar></app-calendar>
-        <div>
-          <mat-icon>child_care</mat-icon>
+        <div fxFlex="80%" style="text-align: center; height: 128">
+          <img src="../../assets/images/babyBoySmall.png" alt="babyBoy">
+          <mat-card-title>Próximas vacunas </mat-card-title>
+          <mat-card-content>
+            <app-vaccine></app-vaccine>
+          </mat-card-content>
         </div>
+        <div fxFlex="20%" style="text-align: center; height: 128">
+          <app-calendar></app-calendar>
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex>
+
       </div>
     </mat-card>
   </mat-card>
