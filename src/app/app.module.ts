@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { HttpService } from './core/http.service';
+import { ApiVacunasService } from './api-vacunas/api-vacunas.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -21,7 +25,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppRoutingModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -30,7 +35,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
   ],
   bootstrap: [AppComponent],
-  providers: []
+  providers: [HttpService, ApiVacunasService]
 
 })
 export class AppModule { }

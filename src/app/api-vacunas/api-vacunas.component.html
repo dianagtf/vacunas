@@ -1,0 +1,4 @@
+<h2>Vacunas API</h2>
+<p>User: <input #user type="text"><button (click)="search(user.value); user.value=''">Buscar</button></p>
+<h4 *ngIf="isEmpty()"> Lista vacía!!!</h4>
+<ul><li *ngFor="let repository of repositories">{{repository}}</li></ul>
