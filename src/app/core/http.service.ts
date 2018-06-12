@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpService {
 
-    static URI = 'http://localhost:8000/api/v1/vacunas';
+    static URI = 'http://localhost:8000/api/v1';
 
     private params: URLSearchParams;
 

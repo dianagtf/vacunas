@@ -26,7 +26,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     FlexLayoutModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
   ],
   declarations: [
     AppComponent,

@@ -1,19 +1,75 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpService } from '../core/http.service';
+import { Vacunas } from './api-vacunas.model';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/throw';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ApiVacunasService {
-  constructor(private http: Http) { }
-  getRepositories(user: string): Observable<string[]> {
-    const url = `http://localhost:8000/api/v1/vacunas`;
-    return this.http.get(url).map(
-      response => response.json().map(vacunas => vacunas.id)
-    ) // Los datos se filtran antes de ser enviados
-    .catch(
-      response => Observable.throw('Server error. ' + response.statusText)
-    ); // para generar una nuevo error
-  }
+    static URI = '/vacunas';
+
+    private readVacuna: Subject<Vacunas> = new Subject();
+
+    private updateVacuna: Subject<Vacunas> = new Subject();
+
+    private allVacunas: Subject<Vacunas[]> = new Subject();
+
+    constructor(private httpService: HttpService) { }
+
+    getAllVacunas(): Observable<Vacunas[]> {
+        this.readAll();
+        return this.allVacunas.asObservable();
+    }
+
+    getUpdateVacuna(): Observable<Vacunas> {
+        return this.updateVacuna.asObservable();
+    }
+
+    prepareUpdate(id: number) {
+        this.httpService.get(ApiVacunasService.URI + '/' + id).subscribe(
+            (vacunaValue: Vacunas) => this.updateVacuna.next(vacunaValue),
+            error => alert(error)
+        );
+    }
+
+    getReadVacuna(): Observable<Vacunas> {
+        return this.readVacuna.asObservable();
+    }
+
+    read(id: number) {
+        this.httpService.get(ApiVacunasService.URI + '/' + id).subscribe(
+            (vacunaValue: Vacunas) => this.readVacuna.next(vacunaValue),
+            error => alert(error),
+        );
+    }
+
+
+    private readAll() {
+        this.httpService.get(ApiVacunasService.URI).subscribe(
+            (vacunasArray: Vacunas[]) => this.allVacunas.next(vacunasArray),
+            error => alert(error)
+        );
+    }
+
+    delete(id: number) {
+        this.httpService.delete(ApiVacunasService.URI + '/' + id).subscribe(
+            () => this.readAll(),
+            error => alert(error)
+        );
+    }
+
+    create(vacuna: Vacunas) {
+        this.httpService.post(ApiVacunasService.URI, vacuna).subscribe(
+            () => this.readAll(),
+            error => alert(error)
+        );
+    }
+
+    update(vacuna: Vacunas) {
+        this.httpService.put(ApiVacunasService.URI + '/' + vacuna.id, vacuna).subscribe(
+            () => this.readAll(),
+            error => alert(error)
+        );
+    }
 }
+
