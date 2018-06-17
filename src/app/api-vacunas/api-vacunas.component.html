@@ -1,7 +1,7 @@
 <h2>Vacunas API</h2>
 <h4 *ngIf="vacunas != undefined && vacunas.length == 0"> Lista vacía!!!</h4>
 
-<mat-table [dataSource]="vacunas">
+<mat-table [dataSource]="vacunas?.vacunas">
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
         <mat-cell *matCellDef="let vacuna"> {{ vacuna.name }} </mat-cell>

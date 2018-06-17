@@ -44,7 +44,7 @@ export class ApiVacunasComponent implements OnInit {
     // this.apiVacunasService.getAllVacunas().subscribe(vacunas => this.vacunas = vacunas);
 
     this.apiVacunasService.getAllVacunas().subscribe((vacunas) => {
-      this.vacunas = vacunas.vacunas;
+      this.vacunas = vacunas;
     }, error => {
       this.errorMessage = error;
     });
