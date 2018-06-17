@@ -5,13 +5,16 @@
     <mat-card-title>{{ add }}</mat-card-title>
     <mat-card-content>
       <mat-form-field>
-        <input matInput type="string" name="username" placeholder="username">
+        <input matInput type="string" name="username" [(ngModel)]="creationUsers.username" placeholder="username">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="string" name="firstName" placeholder="firstName">
+        <input matInput type="string" name="firstName" [(ngModel)]="creationUsers.firstName"  placeholder="firstName">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="string" name="lastName" placeholder="lastName">
+        <input matInput type="string" name="lastName" [(ngModel)]="creationUsers.lastName"  placeholder="lastName">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" name="password" [(ngModel)]="creationUsers.password"  placeholder="password">
       </mat-form-field>
       <span class="add">
         <button mat-fab (click)="create()">

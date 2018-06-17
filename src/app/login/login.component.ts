@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService } from '../core/alert.service';
 import { AuthenticationService } from '../core/authentication.service';
+import { User } from '../user/user.model';
 
 @Component({
     moduleId: module.id.toString(),
@@ -11,9 +12,9 @@ import { AuthenticationService } from '../core/authentication.service';
 })
 
 export class LoginComponent implements OnInit {
-    model: any = {};
+    model: User;
     loading = false;
-    returnUrl: string;
+    returnUrl: 'calendar';
 
     constructor(
         private route: ActivatedRoute,
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.model.username)
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
