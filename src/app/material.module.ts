@@ -13,7 +13,32 @@ import {
   MatDialogModule,
   MatGridListModule,
   MatSnackBarModule,
+  MatAutocompleteModule,
+  MatButtonToggleModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTabsModule,
+  MatTooltipModule,
 } from '@angular/material';
+
+import {BrowserModule} from '@angular/platform-browser';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -29,6 +54,7 @@ import {
     MatDialogModule,
     MatGridListModule,
     MatSnackBarModule,
+    MatNativeDateModule,
   ],
   exports: [
     MatButtonModule,
@@ -43,6 +69,27 @@ import {
     MatDialogModule,
     MatGridListModule,
     MatSnackBarModule,
+    MatAutocompleteModule,
+    MatButtonToggleModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSortModule,
+    MatTabsModule,
+    MatTooltipModule,
   ]
 })
 export class MaterialModule {}
