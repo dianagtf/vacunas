@@ -1,4 +1,4 @@
-<div class="col-md-6 col-md-offset-3">
+<!-- <div class="containerLogin">
     <h2>Register</h2>
     <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
@@ -27,4 +27,46 @@
             <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
         </div>
     </form>
+</div> -->
+
+<div class="containerRegister">
+    <h2>Register</h2>
+    <mat-form-field>
+        <label for="username">Username</label>
+        <input matInput name="username" [(ngModel)]="user.username" #username="ngModel" required/>
+    </mat-form-field>
+
+    <mat-form-field>
+        <label for="firstName">Firstname</label>
+        <input matInput name="firstName" [(ngModel)]="user.firstName" #firstname="ngModel" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <label for="lastName">Lastname</label>
+        <input matInput name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <label for="email">Email</label>
+        <input matInput type=email name="email" [(ngModel)]="user.email" #lastName="ngModel" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <label for="password">Password</label>
+        <input matInput type=password name="password" [(ngModel)]="user.password" #password="ngModel" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <label for="passwordRepeat">Repeat password</label>
+        <input matInput type=password name="passwordRepeat" [(ngModel)]="user.passwordRepeat" #password="ngModel"/>
+    </mat-form-field>
+
+    <div class="button-row">
+        <button mat-raised-button color="accent" (click)="register()" [disabled]="user.username === '' || user.firstName === '' || user.lastName === '' || user.password === '' || user.passwordRepeat === ''">
+            Register
+        </button>
+        <button mat-raised-button color="accent" (click)="back()">
+            Back
+        </button>
+    </div>
 </div>

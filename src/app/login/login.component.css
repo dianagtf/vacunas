@@ -1,4 +1,5 @@
 .containerLogin {
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
   display: flex;
@@ -7,7 +8,6 @@
 }
 
 .containerLogin > * {
-  width: 20%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -15,4 +15,14 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+button{
+  margin: 5px;
 }

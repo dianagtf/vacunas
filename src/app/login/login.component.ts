@@ -10,6 +10,8 @@ import { MatSnackBar } from '@angular/material';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
     moduleId: module.id.toString(),
     templateUrl: 'login.component.html',
@@ -32,14 +34,15 @@ export class LoginComponent implements OnInit {
         // reset login status
         this.authenticationService.logout();
 
-        this.user = { id: 4, username: '', firstName: '', lastName: '', password: '' };
+        this.user = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '', passwordRepeat: '' };
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     login() {
-        this.loading = true;
+        this.router.navigate(['/', 'children']);
+        /*this.loading = true;
         console.log('a');
         this.authenticationService.login(this.user.username)
             .subscribe(
@@ -51,6 +54,9 @@ export class LoginComponent implements OnInit {
                     this.alertService.error(error);
                     this.loading = false;
                     console.log('c');
-                });
+                });*/
+    }
+    register() {
+            this.router.navigate(['/', 'register']);
     }
 }

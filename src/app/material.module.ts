@@ -36,8 +36,7 @@ import {
   MatTooltipModule,
 } from '@angular/material';
 
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -90,6 +89,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatSortModule,
     MatTabsModule,
     MatTooltipModule,
+    BrowserModule,
+    BrowserAnimationsModule,
   ]
 })
 export class MaterialModule {}
