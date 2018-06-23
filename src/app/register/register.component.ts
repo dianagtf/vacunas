@@ -3,9 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService } from '../core/alert.service';
 import { AuthenticationService } from '../core/authentication.service';
-import { UserService } from '../user/user.service';
+import { ApiUsersService } from '../api-users/api-users.service';
 
-import { User } from '../user/user.model';
+import { Users } from '../api-users/api-users.model';
 
 @Component({
     moduleId: module.id.toString(),
@@ -15,42 +15,33 @@ import { User } from '../user/user.model';
 })
 
 export class RegisterComponent implements OnInit {
-    user: User;
+    users: Users[];
     loading = false;
-    createUser: User;
+    updateUser: Users;
+    creationUsers: Users;
     returnUrl: 'register';
+    updateChecked = false;
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private userService: UserService,
+        private apiUsersService: ApiUsersService,
         private authenticationService: AuthenticationService,
         private alertService: AlertService) { }
 
     ngOnInit() {
         // reset login status
         this.authenticationService.logout();
-        this.user = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '', passwordRepeat: '' };
+        this.creationUsers = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '', passwordRepeat: '',
+                     numChildren: 0, childrenBirthday: ''};
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
-
-    register() {
-        this.loading = true;
-
-        this.createUser = { id: 4, username: 'a', firstName: 'a' , lastName: 'a', email: '', password: 'a', passwordRepeat: 'a'};
-        this.router.navigate(['/', 'children']);
-        /*this.userService.create(this.model)
-            .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });*/
+    create() {
+        this.apiUsersService.create(this.creationUsers);
+        this.router.navigate(['/', 'login']);
     }
+
     back() {
         this.router.navigate(['/', 'login']);
     }

@@ -43,21 +43,27 @@ export class ApiVacunaEdadComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateVacunaEdad = {
-      id: 0,
+      id: 1,
       age: '',
       edad: '',
       vacuna1: '',
-      isVacunated1: false,
       vacuna2: '',
-      isVacunated2: false,
       vacuna3: '',
-      isVacunated3: false,
       vacuna4: '',
-      isVacunated4: false,
       vacuna5: '',
-      isVacunated5: false,
       vacuna6: '',
+      isVacunated1: false,
+      isVacunated2: false,
+      isVacunated3: false,
+      isVacunated4: false,
+      isVacunated5: false,
       isVacunated6: false,
+      dateVacuna1: '',
+      dateVacuna2: '',
+      dateVacuna3: '',
+      dateVacuna4: '',
+      dateVacuna5: '',
+      dateVacuna6: ''
     };
 
     // this.apiVacunasService.getAllVacunas().subscribe(vacunas => this.vacunas = vacunas);
@@ -91,11 +97,18 @@ export class ApiVacunaEdadComponent implements OnInit {
 
   prepareUpdate(id: number) {
     this.apiVacunaEdadService.prepareUpdate(id);
+    this.save();
   }
 
   save() {
     this.updateChecked = false;
     this.apiVacunaEdadService.update(this.updateVacunaEdad);
+
+    this.apiVacunaEdadService.getAllVacunaEdad().subscribe((vacunaedad) => {
+      this.vacunaedad = vacunaedad;
+    }, error => {
+      this.errorMessage = error;
+    });
   }
 
   create() {

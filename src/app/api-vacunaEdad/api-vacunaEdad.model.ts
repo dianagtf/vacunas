@@ -3,15 +3,21 @@ export interface VacunaEdad {
     age: string;
     edad: string;
     vacuna1: string;
-    isVacunated1: boolean;
     vacuna2: string;
-    isVacunated2: boolean;
     vacuna3: string;
-    isVacunated3: boolean;
     vacuna4: string;
-    isVacunated4: boolean;
     vacuna5: string;
-    isVacunated5: boolean;
     vacuna6: string;
+    isVacunated1: boolean;
+    isVacunated2: boolean;
+    isVacunated3: boolean;
+    isVacunated4: boolean;
+    isVacunated5: boolean;
     isVacunated6: boolean;
+    dateVacuna1: string;
+    dateVacuna2: string;
+    dateVacuna3: string;
+    dateVacuna4: string;
+    dateVacuna5: string;
+    dateVacuna6: string;
 }

@@ -34,7 +34,8 @@ export class ApiUsersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.creationUsers = { id: 4, username: '', firstName: '', lastName: '', password: '' };
+    this.creationUsers = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '',
+                        passwordRepeat: '', numChildren: 0, childrenBirthday: ''};
     this.creationUsers.id = 0;
 
     this.apiUsersService.getAllUsers().subscribe((users) => {

@@ -3,6 +3,7 @@ import { HttpService } from '../core/http.service';
 import { Users } from './api-users.model';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable()
 export class ApiUsersService {
@@ -14,7 +15,15 @@ export class ApiUsersService {
 
     private allUsers: Subject<Users[]> = new Subject();
 
-    constructor(private httpService: HttpService) { }
+
+    constructor(private httpService: HttpService,
+                public snackBar: MatSnackBar) { }
+
+    openSnackBar(message: string) {
+        this.snackBar.open(message, 'Ok', {
+            duration: 2000
+          });
+    }
 
     getAllUsers(): Observable<Users[]> {
         this.readAll();
@@ -60,8 +69,8 @@ export class ApiUsersService {
 
     create(user: Users) {
         this.httpService.post(ApiUsersService.URI, user).subscribe(
-            () => this.readAll(),
-            error => alert(error)
+            () => this.openSnackBar('Usuario creado!'),
+            error => this.openSnackBar(error)
         );
     }
 

@@ -1,4 +1,4 @@
-export class User {
+export interface User {
     id: number;
     username: string;
     firstName: string;
@@ -6,4 +6,6 @@ export class User {
     email: string;
     password: string;
     passwordRepeat: string;
+    numChildren: number;
+    childrenBirthday: string;
 }

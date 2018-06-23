@@ -16,13 +16,45 @@
                 <mat-checkbox name="vacuna1" [(ngModel)]="edadControl?.value.isVacunated1">
                     {{ edadControl?.value.vacuna1 }}
                 </mat-checkbox>
-            </td>
-            <td>
+
                 <mat-form-field>
                     <input matInput [matDatepicker]="date1" placeholder="Fecha" [value]="edadControl?.value.dateVacuna1">
                     <mat-datepicker-toggle matSuffix [for]="date1"></mat-datepicker-toggle>
                     <mat-datepicker #date1></mat-datepicker>
                 </mat-form-field>
+                <button mat-icon-button (click)="prepareUpdate(1)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+
+                <div fxLayout="column" fxFlex [style.display]="updateChecked?'block':'none'">
+                    <span>
+                        <mat-form-field>
+                            <input matInput readonly type="number" name="id" [(ngModel)]="updateVacunaEdad.id" placeholder="Id">
+                        </mat-form-field>
+                        <mat-checkbox name="isVacunated1" [(ngModel)]="updateVacunaEdad.isVacunated1">
+                            {{ edadControl?.value.vacuna1 }}
+                        </mat-checkbox>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="date1update" name="date1update" placeholder="Fecha" [(ngModel)]="updateVacunaEdad.dateVacuna1">
+                            <mat-datepicker-toggle matSuffix [for]="date1update"></mat-datepicker-toggle>
+                            <mat-datepicker #date1update></mat-datepicker>
+                        </mat-form-field>
+
+                        <button mat-icon-button (click)="save(1)">
+                            <mat-icon>save</mat-icon>
+                        </button>
+                    </span>
+                    <span class="cancel">
+                        <button mat-icon-button type="submit" (click)="cancel()">
+                            <mat-icon>clear</mat-icon>
+                        </button>
+                    </span>
+                </div>
+
+            </td>
+            <td>
+
             </td>
         </tr>
         <tr *ngIf="edadControl?.value.vacuna2 != ''">
@@ -30,6 +62,9 @@
                 <mat-checkbox>
                     {{ edadControl?.value.vacuna2 }}
                 </mat-checkbox>
+                <button mat-icon-button (click)="prepareUpdate(2)">
+                    <mat-icon>save</mat-icon>
+                </button>
             </td>
             <td>
                 <mat-form-field>
@@ -96,7 +131,4 @@
             </td>
         </tr>
     </table>
-    <button mat-icon-button (click)="save()">
-        <mat-icon>save</mat-icon>
-    </button>
 </form>
