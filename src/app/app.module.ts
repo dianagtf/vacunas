@@ -23,7 +23,6 @@ import { CalendarModule } from 'angular-calendar';
 import { AuthenticationService } from './core/authentication.service';
 import { AlertService } from './core/alert.service';
 import { UserService } from './user/user.service';
-import { EmailService } from './email/email.service';
 
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -49,7 +48,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   bootstrap: [AppComponent],
   providers: [HttpService, ApiVacunasService, ApiUsersService, AuthenticationService,
-    AlertService, UserService, ApiVacunaUserService, ApiVacunaEdadService, EmailService]
+    AlertService, UserService, ApiVacunaUserService, ApiVacunaEdadService]
 
 })
 export class AppModule { }
