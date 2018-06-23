@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { HttpService } from '../core/http.service';
 import { Vacunas } from './api-vacunas.model';
 import { ApiVacunasService } from './api-vacunas.service';
 import 'rxjs/add/operator/map';
-import { Subject } from 'rxjs/Subject';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { MatSnackBar } from '@angular/material';
-
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-api-vacunas',
@@ -17,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiVacunasComponent implements OnInit {
   vacunas: Vacunas[];
-  updateCheked = false;
+  updateChecked = false;
   updateVacuna: Vacunas;
   creationVacunas: Vacunas;
 
@@ -36,7 +28,7 @@ export class ApiVacunasComponent implements OnInit {
     'fourteenYears'
   ];
 
-  constructor(private httpService: HttpService, private apiVacunasService: ApiVacunasService) {
+  constructor(private apiVacunasService: ApiVacunasService) {
    }
 
   ngOnInit(): void {
@@ -51,7 +43,7 @@ export class ApiVacunasComponent implements OnInit {
 
     this.apiVacunasService.getUpdateVacuna().subscribe(vacuna => {
       this.updateVacuna = vacuna;
-      this.updateCheked = true;
+      this.updateChecked = true;
     });
 
     this.apiVacunasService.getReadVacuna().subscribe(vacunas => alert(vacunas.id + ':' + vacunas.name + ',' + vacunas.conditions));
@@ -70,7 +62,7 @@ export class ApiVacunasComponent implements OnInit {
   }
 
   save() {
-    this.updateCheked = false;
+    this.updateChecked = false;
     this.apiVacunasService.update(this.updateVacuna);
   }
 
@@ -79,6 +71,6 @@ export class ApiVacunasComponent implements OnInit {
   }
 
   cancel() {
-    this.updateCheked = false;
+    this.updateChecked = false;
   }
 }

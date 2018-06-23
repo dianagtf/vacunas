@@ -1,0 +1,102 @@
+<h4 *ngIf="vacunaedad != undefined && vacunaedad.length == 0"> Lista vacía!!!</h4>
+
+<form>
+    <mat-form-field>
+        <mat-select placeholder="Edad" [formControl]="edadControl" required>
+            <mat-option *ngFor="let vacunaedad of vacunaedad?.vacunaedad" [value]="vacunaedad">
+                {{ vacunaedad.edad }}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="edadControl.hasError('required')">Elige edad</mat-error>
+    </mat-form-field>
+    <table *ngIf="edadControl.value.vacuna1 != undefined" style="list-style-type:none">
+
+        <tr *ngIf="edadControl?.value.vacuna1 != ''">
+            <td>
+                <mat-checkbox name="vacuna1" [(ngModel)]="edadControl?.value.isVacunated1">
+                    {{ edadControl?.value.vacuna1 }}
+                </mat-checkbox>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="date1" placeholder="Fecha" [value]="edadControl?.value.dateVacuna1">
+                    <mat-datepicker-toggle matSuffix [for]="date1"></mat-datepicker-toggle>
+                    <mat-datepicker #date1></mat-datepicker>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr *ngIf="edadControl?.value.vacuna2 != ''">
+            <td>
+                <mat-checkbox>
+                    {{ edadControl?.value.vacuna2 }}
+                </mat-checkbox>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="date2" placeholder="Fecha" [value]="edadControl?.value.dateVacuna2">
+                    <mat-datepicker-toggle matSuffix [for]="date2"></mat-datepicker-toggle>
+                    <mat-datepicker #date2></mat-datepicker>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr *ngIf="edadControl?.value.vacuna3 != ''">
+            <td>
+                <mat-checkbox>
+                    {{ edadControl?.value.vacuna3 }}
+                </mat-checkbox>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="date3" placeholder="Fecha" [value]="edadControl?.value.dateVacuna3">
+                    <mat-datepicker-toggle matSuffix [for]="date3"></mat-datepicker-toggle>
+                    <mat-datepicker #date3></mat-datepicker>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr *ngIf="edadControl?.value.vacuna4 != ''">
+            <td>
+                <mat-checkbox>
+                    {{ edadControl?.value.vacuna4 }}
+                </mat-checkbox>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="date4" placeholder="Fecha" [value]="edadControl?.value.dateVacuna4">
+                    <mat-datepicker-toggle matSuffix [for]="date4"></mat-datepicker-toggle>
+                    <mat-datepicker #date4></mat-datepicker>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr *ngIf="edadControl?.value.vacuna5 != ''">
+            <td>
+                <mat-checkbox>
+                    {{ edadControl?.value.vacuna5 }}
+                </mat-checkbox>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="date5" placeholder="Fecha" [value]="edadControl?.value.dateVacuna5">
+                    <mat-datepicker-toggle matSuffix [for]="date5"></mat-datepicker-toggle>
+                    <mat-datepicker #date5></mat-datepicker>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr *ngIf="edadControl?.value.vacuna6 != ''">
+            <td>
+                <mat-checkbox>
+                    {{ edadControl?.value.vacuna6 }}
+                </mat-checkbox>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="date6" placeholder="Fecha" [value]="edadControl?.value.dateVacuna6">
+                    <mat-datepicker-toggle matSuffix [for]="date6"></mat-datepicker-toggle>
+                    <mat-datepicker #date6></mat-datepicker>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <button mat-icon-button (click)="save()">
+        <mat-icon>save</mat-icon>
+    </button>
+</form>

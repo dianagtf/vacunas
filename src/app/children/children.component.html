@@ -1,26 +1,12 @@
 <div class="container">
-  <mat-card class="card">
-    <mat-card-header>
-      <mat-card-title>
-        <h1>Children</h1>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card>
-      <div fxLayout="row" fxFlex>
-        <div fxFlex="80%" style="text-align: center; height: 128">
-          <img src="../../assets/images/babyBoySmall.png" alt="babyBoy">
-          <mat-card-title>Próximas vacunas </mat-card-title>
-          <mat-card-content>
-            <app-vaccine></app-vaccine>
-          </mat-card-content>
-        </div>
-        <div fxFlex="20%" style="text-align: center; height: 128">
-          <app-calendar></app-calendar>
-        </div>
-      </div>
-      <div fxLayout="row" fxFlex>
-
-      </div>
-    </mat-card>
-  </mat-card>
+  <h1>Historial de vacunas</h1>
+  <div fxLayout="row" fxFlex>
+    <div fxFlex="80%">
+      <img src="../../assets/images/babyBoySmall.png" alt="babyBoy">
+      <app-api-vacunaedad></app-api-vacunaedad>
+    </div>
+    <div fxFlex="20%" style="text-align: center; height: 128">
+      <app-calendar></app-calendar>
+    </div>
+  </div>
 </div>

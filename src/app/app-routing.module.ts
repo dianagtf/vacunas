@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ApiUsersComponent } from './api-users/api-users.component';
 import { ApiVacunaUserComponent } from './api-vacunaUser/api-vacunaUser.component';
+import { ApiVacunaEdadComponent } from './api-vacunaEdad/api-vacunaEdad.component';
+import { EmailComponent } from './email/email.component';
 
 const appRoutes: Routes = [
   { path: 'children', component: ChildrenComponent },
@@ -19,8 +21,10 @@ const appRoutes: Routes = [
   { path: 'apivacunas', component: ApiVacunasComponent},
   { path: 'apiusers', component: ApiUsersComponent},
   { path: 'apivacunauser', component: ApiVacunaUserComponent},
+  { path: 'apivacunaedad', component: ApiVacunaEdadComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
+  { path: 'email', component: EmailComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -37,5 +41,7 @@ export class AppRoutingModule {
     RegisterComponent,
     ApiVacunasComponent,
     ApiUsersComponent,
-    ApiVacunaUserComponent];
+    ApiVacunaUserComponent,
+    ApiVacunaEdadComponent,
+    EmailComponent];
 }

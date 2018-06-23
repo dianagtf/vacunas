@@ -1,64 +1,12 @@
-<button (click)="search()">Search</button>(http://localhost:8000/api/v1/vacunas)
-
-<ul>
-    <li *ngFor="let vacuna of dataSource"> 
-      {{ vacuna.nombre }}
-    </li>
-   </ul>
-
-<div>
-    <mat-table #table [dataSource]="dataSource">
-        <!-- <ng-container matColumnDef="nombre">
-            <mat-header-cell *matHeaderCellDef> Vacunas </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.nombre | sync}} </mat-cell>
-        </ng-container>-->
-
-        <!-- <ng-container matColumnDef='twoMonths'>
-            <mat-header-cell *matHeaderCellDef> 2 Meses </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.twoMonths}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef='fourMonths'>
-            <mat-header-cell *matHeaderCellDef> 4 Meses </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.fourMonths}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef='elevenMonths'>
-            <mat-header-cell *matHeaderCellDef> 11 Meses </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.elevenMonths}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef='twelveMonths'>
-            <mat-header-cell *matHeaderCellDef> 12 Meses </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.twelveMonths}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef='fiveteenMonths'>
-            <mat-header-cell *matHeaderCellDef> 15 Meses </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.fiveteenMonths}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef='fourYears'>
-            <mat-header-cell *matHeaderCellDef> 4 Años </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.fourYears}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef='sixYears'>
-            <mat-header-cell *matHeaderCellDef> 6 Años </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.sixYears}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef='twelveYears'>
-            <mat-header-cell *matHeaderCellDef> 12 Años </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.twelveYears}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef='fourteenYears'>
-            <mat-header-cell *matHeaderCellDef> 14 Años </mat-header-cell>
-            <mat-cell *matCellDef='let element'> {{element.fourteenYears}} </mat-cell>
-        </ng-container>-->
-
-        <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>
-        <mat-row *matRowDef='let row; columns: displayedColumns;'></mat-row>
-    </mat-table>
-</div>
+<form>
+  <mat-form-field class="edad-form">
+    <mat-select placeholder="Edad" [formControl]="edadControl" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let option of edadOption" [value]="option">
+        {{ option.edad }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="edadControl.hasError('required')">Elige edad</mat-error>
+    <mat-hint>{{ edadControl.value?.age }}</mat-hint>
+  </mat-form-field>
+</form>
