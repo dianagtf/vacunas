@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormControl, Validators } from '@angular/forms';
+import { Users } from '../api-users/api-users.model';
 
 @Component({
   selector: 'app-api-vacunaedad',
@@ -18,8 +19,10 @@ export class ApiVacunaEdadComponent implements OnInit {
   vacunaedad: VacunaEdad[];
   vacunas: Vacunas[];
   updateChecked = false;
+  createChecked = false;
   updateVacunaEdad: VacunaEdad;
   creationVacunaEdad: VacunaEdad;
+  user: Users;
 
   edadControl = new FormControl('', [Validators.required]);
   date: FormControl;
@@ -44,6 +47,8 @@ export class ApiVacunaEdadComponent implements OnInit {
   ngOnInit(): void {
     this.updateVacunaEdad = {
       id: 1,
+      user_id: this.user,
+      name: '',
       age: '',
       edad: '',
       vacuna1: '',
@@ -113,6 +118,10 @@ export class ApiVacunaEdadComponent implements OnInit {
 
   create() {
     this.apiVacunaEdadService.create(this.updateVacunaEdad);
+  }
+
+  prepareCreate() {
+    this.createChecked = true;
   }
 
   cancel() {

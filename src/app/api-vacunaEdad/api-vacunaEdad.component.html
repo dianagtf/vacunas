@@ -1,6 +1,22 @@
-<h4 *ngIf="vacunaedad != undefined && vacunaedad.length == 0"> Lista vacía!!!</h4>
+<span>
+    <p>Número de hijos añadidos: {{ vacunaedad?.vacunaedad[1].user.numChildren }}</p>
+    <button mat-icon-button (click)="prepareCreate()">
+        <mat-icon>add</mat-icon>
+    </button>
+    <form [style.display]="createChecked?'block':'none'">
+        <mat-form-field name="name">
+            <input matInput placeholder="Nombre">
+        </mat-form-field>
 
-<form>
+        <mat-form-field name="edad">
+            <input matInput placeholder="Edad">
+        </mat-form-field>
+        <button mat-icon-button (click)="create()">
+            <mat-icon>save</mat-icon>
+        </button>
+    </form>
+</span>
+<form fxFlex [style.display]="(vacunaedad?.vacunaedad[1].user.numChildren != 0)?'block':'none'">
     <mat-form-field>
         <mat-select placeholder="Edad" [formControl]="edadControl" required>
             <mat-option *ngFor="let vacunaedad of vacunaedad?.vacunaedad" [value]="vacunaedad">

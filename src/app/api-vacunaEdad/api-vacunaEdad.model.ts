@@ -1,5 +1,9 @@
+import { Users } from '../api-users/api-users.model';
+
 export interface VacunaEdad {
     id: number;
+    user_id: Users;
+    name: string;
     age: string;
     edad: string;
     vacuna1: string;
