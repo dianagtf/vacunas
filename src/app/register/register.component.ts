@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService } from '../core/alert.service';
-import { AuthenticationService } from '../core/authentication.service';
 import { ApiUsersService } from '../api-users/api-users.service';
 
 import { Users } from '../api-users/api-users.model';
@@ -26,12 +25,10 @@ export class RegisterComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private apiUsersService: ApiUsersService,
-        private authenticationService: AuthenticationService,
         private alertService: AlertService) { }
 
     ngOnInit() {
         // reset login status
-        this.authenticationService.logout();
         this.creationUsers = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '', passwordRepeat: '',
                      numChildren: 0, childrenBirthday: ''};
         // get return url from route parameters or default to '/'

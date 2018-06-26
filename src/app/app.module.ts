@@ -20,7 +20,6 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 
-import { AuthenticationService } from './core/authentication.service';
 import { AlertService } from './core/alert.service';
 import { UserService } from './user/user.service';
 
@@ -47,7 +46,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
   ],
   bootstrap: [AppComponent],
-  providers: [HttpService, ApiVacunasService, ApiUsersService, AuthenticationService,
+  providers: [HttpService, ApiVacunasService, ApiUsersService,
     AlertService, UserService, ApiVacunaUserService, ApiVacunaEdadService]
 
 })

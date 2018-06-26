@@ -2,15 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService } from '../core/alert.service';
-import { AuthenticationService } from '../core/authentication.service';
-import { User } from '../user/user.model';
-
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { MatSnackBar } from '@angular/material';
-
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-import { MatButtonModule } from '@angular/material/button';
+import { Users } from '../api-users/api-users.model';
+import { ApiUsersService } from '../api-users/api-users.service';
 
 @Component({
     moduleId: module.id.toString(),
@@ -20,43 +13,26 @@ import { MatButtonModule } from '@angular/material/button';
 })
 
 export class LoginComponent implements OnInit {
-    user: User;
+    users: Users[];
     loading = false;
     returnUrl: 'calendar';
+    user: Users;
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService) { }
+        private alertService: AlertService,
+        private apiUsersService: ApiUsersService) { }
 
     ngOnInit() {
-        // reset login status
-        this.authenticationService.logout();
 
-        this.user = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '', passwordRepeat: '' };
-
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        this.user = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '', passwordRepeat: '',
+                     numChildren: 0, childrenBirthday: ''};
     }
-
     login() {
-        this.router.navigate(['/', 'children']);
-        /*this.loading = true;
-        console.log('a');
-        this.authenticationService.login(this.user.username)
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                    console.log('b');
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                    console.log('c');
-                });*/
+        this.apiUsersService.login(this.user);
     }
     register() {
-            this.router.navigate(['/', 'register']);
+        this.router.navigate(['/', 'register']);
     }
 }

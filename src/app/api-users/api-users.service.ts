@@ -4,10 +4,17 @@ import { Users } from './api-users.model';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
+
+import { NgZone } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import 'rxjs/operators';
 
 @Injectable()
 export class ApiUsersService {
     static URI = '/users';
+    static AUTHENTICATE = '/authenticate';
 
     private readUser: Subject<Users> = new Subject();
 
@@ -17,7 +24,10 @@ export class ApiUsersService {
 
 
     constructor(private httpService: HttpService,
-                public snackBar: MatSnackBar) { }
+                public snackBar: MatSnackBar,
+                private router: Router,
+                private route: ActivatedRoute,
+                private ngZone: NgZone) { }
 
     openSnackBar(message: string) {
         this.snackBar.open(message, 'Ok', {
@@ -52,6 +62,13 @@ export class ApiUsersService {
         );
     }
 
+    readUsername(username: string) {
+        this.httpService.get(ApiUsersService.URI + '/' + username).subscribe(
+            () => this.openSnackBar('leído!'),
+            error => alert(error),
+        );
+    }
+
 
     private readAll() {
         this.httpService.get(ApiUsersService.URI).subscribe(
@@ -71,6 +88,13 @@ export class ApiUsersService {
         this.httpService.post(ApiUsersService.URI, user).subscribe(
             () => this.openSnackBar('Usuario creado!'),
             error => this.openSnackBar(error)
+        );
+    }
+
+    login(user: Users) {
+        this.httpService.post(ApiUsersService.AUTHENTICATE, user).subscribe(
+            () => this.router.navigate(['/', 'children'], { relativeTo: this.route }),
+            error => this.openSnackBar('Datos incorrectos, por favor, prueba de nuevo')
         );
     }
 
