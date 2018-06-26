@@ -26,3 +26,11 @@
   button{
     margin: 5px;
   }
+
+  .formularioGap{
+    padding-right: 10px;
+  }
+
+  .ancho{
+    flex: 2 1 auto;
+  }

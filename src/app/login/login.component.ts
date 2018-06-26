@@ -32,7 +32,4 @@ export class LoginComponent implements OnInit {
     login() {
         this.apiUsersService.login(this.user);
     }
-    register() {
-        this.router.navigate(['/', 'register']);
-    }
 }

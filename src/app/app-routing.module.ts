@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ChildActivationEnd } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { ChildrenComponent } from './children/children.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -12,6 +12,8 @@ import { RegisterComponent } from './register/register.component';
 import { ApiUsersComponent } from './api-users/api-users.component';
 import { ApiVacunaUserComponent } from './api-vacunaUser/api-vacunaUser.component';
 import { ApiVacunaEdadComponent } from './api-vacunaEdad/api-vacunaEdad.component';
+import { SignComponent } from './sign/sign.component';
+import { IndexComponent } from './index/index.component';
 
 const appRoutes: Routes = [
   { path: 'children', component: ChildrenComponent },
@@ -21,8 +23,10 @@ const appRoutes: Routes = [
   { path: 'apiusers', component: ApiUsersComponent},
   { path: 'apivacunauser', component: ApiVacunaUserComponent},
   { path: 'apivacunaedad', component: ApiVacunaEdadComponent},
+  { path: 'sign', component: SignComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
+  { path: 'index', component: IndexComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -35,10 +39,12 @@ export class AppRoutingModule {
     ChildrenComponent,
     CalendarComponent,
     VaccineComponent,
+    SignComponent,
     LoginComponent,
     RegisterComponent,
     ApiVacunasComponent,
     ApiUsersComponent,
     ApiVacunaUserComponent,
-    ApiVacunaEdadComponent];
+    ApiVacunaEdadComponent,
+    IndexComponent];
 }

@@ -1,0 +1,27 @@
+.containerSign {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerSign > * {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
+.card {
+  max-width: 700px;
+}
+
+.title{
+  font-family: "Roboto", sans-serif !important;
+  font-size: 2rem !important;
+  color: #009688;
+  line-height: 110% !important;
+  margin: 2.3733333333rem 0 1.424rem 0 !important;
+}

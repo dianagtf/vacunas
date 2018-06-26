@@ -86,8 +86,11 @@ export class ApiUsersService {
 
     create(user: Users) {
         this.httpService.post(ApiUsersService.URI, user).subscribe(
-            () => this.openSnackBar('Usuario creado!'),
-            error => this.openSnackBar(error)
+            () => {
+                this.openSnackBar('Usuario creado!');
+                this.login(user);
+        },
+            error => this.openSnackBar('Prueba con otro nombre de usuario!')
         );
     }
 

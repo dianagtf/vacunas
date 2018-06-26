@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AlertService } from '../core/alert.service';
 import { ApiUsersService } from '../api-users/api-users.service';
 
 import { Users } from '../api-users/api-users.model';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
     moduleId: module.id.toString(),
@@ -24,8 +24,7 @@ export class RegisterComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private apiUsersService: ApiUsersService,
-        private alertService: AlertService) { }
+        private apiUsersService: ApiUsersService) { }
 
     ngOnInit() {
         // reset login status
@@ -36,10 +35,5 @@ export class RegisterComponent implements OnInit {
     }
     create() {
         this.apiUsersService.create(this.creationUsers);
-        this.router.navigate(['/', 'login']);
-    }
-
-    back() {
-        this.router.navigate(['/', 'login']);
     }
 }

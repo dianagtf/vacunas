@@ -1,13 +1,18 @@
-<div>
-    <mat-toolbar color="primary">
+
+<mat-toolbar color="primary" role="heading" class="margin">
+    <mat-toolbar-row>
         <span>
-            <img alt="Vacunas" src="../assets/images/vacunas-transp.svg" style="height: 40pt;">
+            Calendario de vacunación
         </span>
+        <span>
+            <img alt="vacunas" src="../../assets/images/vacunas-transp.svg" height="40em">
+        </span>
+        <span class="nav-spacer"></span>
 
-        <span>Welcome to {{ title }}!</span>
-
-        <nav class="navigation">
-            <a [routerLink]="['/children']">Children</a>
-        </nav>
-    </mat-toolbar>
-</div>
+        <span>
+            <a href="http://www.madrid.org/cs/Satellite?cid=1142655207178&language=es&pagename=PortalSalud%2FPage%2FPTSA_pintarContenidoFinal&vest=1142652304545">
+                <img alt="Comunidad de Madrid" src="../../assets/images/portalSalud.png">
+            </a>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>

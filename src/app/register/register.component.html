@@ -1,52 +1,49 @@
-<div class="containerRegister">
-    <h2>Registro</h2>
-    <mat-form-field>
-        <label for="username">Username</label>
-        <input matInput name="username" [(ngModel)]="creationUsers.username" #username="ngModel" required/>
-    </mat-form-field>
+<div fxLayout="column" fxFlex>
+    <div fxLayout="row" fxLayoutAlign="space-around none">
+        <mat-form-field>
+            <label for="username">Nombre de usuario</label>
+            <input matInput name="username" [(ngModel)]="creationUsers.username" #username="ngModel" required/>
+        </mat-form-field>
+        <mat-form-field>
+            <label for="password">Contraseña</label>
+            <input matInput type=password name="password" [(ngModel)]="creationUsers.password" #password="ngModel" />
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+        <div class="ancho">
+            <mat-form-field>
+                <label for="email">Email</label>
+                <input matInput type=email name="email" [(ngModel)]="creationUsers.email" #lastName="ngModel" />
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+        <mat-form-field>
+            <label for="firstName">Nombre</label>
+            <input matInput name="firstName" [(ngModel)]="creationUsers.firstName" #firstname="ngModel" />
+        </mat-form-field>
+        <mat-form-field>
+            <label for="lastName">Apellido</label>
+            <input matInput name="lastName" [(ngModel)]="creationUsers.lastName" #lastName="ngModel" />
+        </mat-form-field>
+    </div>
 
-    <mat-form-field>
-        <label for="firstName">Firstname</label>
-        <input matInput name="firstName" [(ngModel)]="creationUsers.firstName" #firstname="ngModel" />
-    </mat-form-field>
-
-    <mat-form-field>
-        <label for="lastName">Lastname</label>
-        <input matInput name="lastName" [(ngModel)]="creationUsers.lastName" #lastName="ngModel" />
-    </mat-form-field>
-
-    <mat-form-field>
-        <label for="email">Email</label>
-        <input matInput type=email name="email" [(ngModel)]="creationUsers.email" #lastName="ngModel" />
-    </mat-form-field>
-
-    <mat-form-field>
-        <label for="password">Password</label>
-        <input matInput type=password name="password" [(ngModel)]="creationUsers.password" #password="ngModel" />
-    </mat-form-field>
-
-    <mat-form-field>
-        <label for="passwordRepeat">Repeat password</label>
-        <input matInput type=password name="passwordRepeat" [(ngModel)]="creationUsers.passwordRepeat" #password="ngModel" />
-    </mat-form-field>
-    <mat-form-field>
-        <label for="numChildren">Número de hijos</label>
-        <input matInput name="numChildren" [(ngModel)]="creationUsers.numChildren" #numChildren="ngModel" />
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" [(ngModel)]="creationUsers.childrenBirthday">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <!-- <span>
+        <mat-form-field>
+            <label for="numChildren">Número de hijos</label>
+            <input matInput name="numChildren" [(ngModel)]="creationUsers.numChildren" #numChildren="ngModel" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" [(ngModel)]="creationUsers.childrenBirthday">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </span> -->
 
     <div class="button-row">
         <button mat-raised-button color="accent" (click)="create()" [disabled]="creationUsers.username === '' || 
-        creationUsers.firstName === '' || creationUsers.lastName === '' || creationUsers.password === '' || 
-        creationUsers.passwordRepeat === '' || creationUsers.numChildren === '' || creationUsers.childrenBirthday === ''">
-            Register
-        </button>
-        <button mat-raised-button color="accent" (click)="back()">
-            Back
+        creationUsers.firstName === '' || creationUsers.lastName === '' || creationUsers.password === ''">
+            Registrar
         </button>
     </div>
 </div>

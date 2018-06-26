@@ -1,11 +1,15 @@
-/* http://cssreference.io/ */
-.container {
-    display: flex;
-    flex-direction: row; /* row | row-reverse | column | column-reverse */
-    flex-wrap: wrap; /* nowrap | wrap | wrap-reverse */
-    justify-content: space-around; /* flex-start | flex-end | center | space-between | space-around | space-evenly */
-    align-items: center; /* stretch | flex-start | flex-end | center | baseline  */
+.nav-icon {
+    padding: 0 0px;
+  }
+.nav-spacer {
+  flex: 1 1 auto;
 }
-a {
-    margin-left: 10px;
+
+.nav-spacer-right {
+    flex: 0.01 1 auto;
 }
+
+.margin{
+  margin: 0px;
+}
+
