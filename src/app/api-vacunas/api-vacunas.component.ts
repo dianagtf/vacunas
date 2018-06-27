@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Vacunas } from './api-vacunas.model';
 import { ApiVacunasService } from './api-vacunas.service';
 import 'rxjs/add/operator/map';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-api-vacunas',
-  templateUrl: './api-vacunas.component.html'
+  templateUrl: './api-vacunas.component.html',
+  styleUrls: ['./api-vacunas.component.css']
 })
 export class ApiVacunasComponent implements OnInit {
   vacunas: Vacunas[];
@@ -28,7 +30,9 @@ export class ApiVacunasComponent implements OnInit {
     'fourteenYears'
   ];
 
-  constructor(private apiVacunasService: ApiVacunasService) {
+  constructor(
+    private apiVacunasService: ApiVacunasService,
+    private router: Router) {
    }
 
   ngOnInit(): void {
@@ -72,5 +76,9 @@ export class ApiVacunasComponent implements OnInit {
 
   cancel() {
     this.updateChecked = false;
+  }
+
+  back() {
+    this.router.navigate(['/', 'index']);
   }
 }

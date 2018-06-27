@@ -1,11 +1,13 @@
 <div class="container">
-  <h1>Historial de vacunas</h1>
-  <div fxLayout="row" fxFlex>
-    <div fxFlex="80%">
+  <div fxLayout.md="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
+    <h2>Historial de vacunas</h2>
+  </div>
+  <div fxLayout.md="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
+    <div class="center">
       <img src="../../assets/images/babyBoySmall.png" alt="babyBoy">
       <app-api-vacunaedad></app-api-vacunaedad>
     </div>
-    <div fxFlex="20%" style="text-align: center; height: 128">
+    <div class="center">
       <app-calendar></app-calendar>
     </div>
   </div>

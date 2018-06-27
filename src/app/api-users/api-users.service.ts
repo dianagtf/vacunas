@@ -6,7 +6,6 @@ import { Subject } from 'rxjs/Subject';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 
-import { NgZone } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import 'rxjs/operators';
@@ -26,8 +25,7 @@ export class ApiUsersService {
     constructor(private httpService: HttpService,
                 public snackBar: MatSnackBar,
                 private router: Router,
-                private route: ActivatedRoute,
-                private ngZone: NgZone) { }
+                private route: ActivatedRoute) { }
 
     openSnackBar(message: string) {
         this.snackBar.open(message, 'Ok', {
@@ -96,7 +94,7 @@ export class ApiUsersService {
 
     login(user: Users) {
         this.httpService.post(ApiUsersService.AUTHENTICATE, user).subscribe(
-            () => this.router.navigate(['/', 'children'], { relativeTo: this.route }),
+            () => this.router.navigate(['/', 'index'], { relativeTo: this.route }),
             error => this.openSnackBar('Datos incorrectos, por favor, prueba de nuevo')
         );
     }

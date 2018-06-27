@@ -1,61 +1,105 @@
-<h2>Vacunas API</h2>
-<h4 *ngIf="vacunas != undefined && vacunas.length == 0"> Lista vacía!!!</h4>
+<div fxLayout="column" fxLayoutAlign="center">
+    <mat-card>
+        <mat-table [dataSource]="vacunas?.vacunas">
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna"> {{ vacuna.name }} </mat-cell>
+            </ng-container>
 
-<mat-table [dataSource]="vacunas?.vacunas">
-    <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.name }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="conditions">
+                <mat-header-cell *matHeaderCellDef> Condiciones </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    {{ vacuna.conditions }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="twoMonths">
+                <mat-header-cell *matHeaderCellDef> 2 Meses </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.twoMonths == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="conditions">
-        <mat-header-cell *matHeaderCellDef> Condiciones </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.conditions }} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="twoMonths">
-        <mat-header-cell *matHeaderCellDef> 2 Meses </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.twoMonths }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="fourMonths">
+                <mat-header-cell *matHeaderCellDef> 4 Meses </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.fourMonths == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="fourMonths">
-        <mat-header-cell *matHeaderCellDef> 4 Meses </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.fourMonths }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="elevenMonths">
+                <mat-header-cell *matHeaderCellDef> 11 Meses </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.elevenMonths == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="elevenMonths">
-        <mat-header-cell *matHeaderCellDef> 11 Meses </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.elevenMonths }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="twelveMonths">
+                <mat-header-cell *matHeaderCellDef> 12 Meses </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.twelveMonths == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="twelveMonths">
-        <mat-header-cell *matHeaderCellDef> 12 Meses </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.twelveMonths }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="fiveteenMonths">
+                <mat-header-cell *matHeaderCellDef> 15 Meses </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.fifteenMonths == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="fiveteenMonths">
-        <mat-header-cell *matHeaderCellDef> 15 Meses </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.fifteenMonths }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="fourYears">
+                <mat-header-cell *matHeaderCellDef> 4 Años </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.fourYears == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="fourYears">
-        <mat-header-cell *matHeaderCellDef> 4 Años </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.fourYears }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="sixYears">
+                <mat-header-cell *matHeaderCellDef> 6 Años </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.sixYears == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="sixYears">
-        <mat-header-cell *matHeaderCellDef> 6 Años </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.sixYears }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="twelveYears">
+                <mat-header-cell *matHeaderCellDef> 12 Años </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.twelveYears == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="twelveYears">
-        <mat-header-cell *matHeaderCellDef> 12 Años </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.twelveYears }} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="fourteenYears">
+                <mat-header-cell *matHeaderCellDef> 14 Años </mat-header-cell>
+                <mat-cell *matCellDef="let vacuna">
+                    <div *ngIf="vacuna.fourteenYears == true">
+                        <img src="../../assets/images/vacunas-transp.svg" height="20px">
+                    </div>
+                </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="fourteenYears">
-        <mat-header-cell *matHeaderCellDef> 14 Años </mat-header-cell>
-        <mat-cell *matCellDef="let vacuna"> {{ vacuna.fourteenYears }} </mat-cell>
-    </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    </mat-card>
+</div>
+<div fxLayout="row" fxLayoutAlign="center" >
+    <button mat-raised-button color="accent" (click)="back()" class="back">
+        Volver
+    </button>
+</div>
