@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +26,6 @@ import { UserService } from './user/user.service';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -44,7 +43,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppComponent,
     AppRoutingModule.components,
     HeaderComponent,
-    FooterComponent,
+    FooterComponent
   ],
   bootstrap: [AppComponent],
   providers: [HttpService, ApiVacunasService, ApiUsersService,
