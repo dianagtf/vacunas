@@ -18,7 +18,7 @@ import { Users } from '../api-users/api-users.model';
 export class ApiVacunaEdadComponent implements OnInit {
   vacunaedad: VacunaEdad[];
   vacunas: Vacunas[];
-  updateChecked = false;
+  updateChecked = [false, false, false, false, false, false];
   createChecked = false;
   updateVacunaEdad: VacunaEdad;
   creationVacunaEdad: VacunaEdad;
@@ -86,7 +86,7 @@ export class ApiVacunaEdadComponent implements OnInit {
 
     this.apiVacunaEdadService.getUpdateVacuna().subscribe(vacunaedad => {
       this.updateVacunaEdad = vacunaedad;
-      this.updateChecked = true;
+      this.updateChecked[1] = true;
     });
 
     this.apiVacunaEdadService.getReadVacunaEdad().subscribe(vacunaedad => alert(vacunaedad.id + ':' + vacunaedad.age));
@@ -102,11 +102,11 @@ export class ApiVacunaEdadComponent implements OnInit {
 
   prepareUpdate(id: number) {
     this.apiVacunaEdadService.prepareUpdate(id);
-    this.save();
+    this.save(id);
   }
 
-  save() {
-    this.updateChecked = false;
+  save(id: number) {
+    this.updateChecked[id] = false;
     this.apiVacunaEdadService.update(this.updateVacunaEdad);
 
     this.apiVacunaEdadService.getAllVacunaEdad().subscribe((vacunaedad) => {
@@ -120,11 +120,11 @@ export class ApiVacunaEdadComponent implements OnInit {
     this.apiVacunaEdadService.create(this.updateVacunaEdad);
   }
 
-  prepareCreate() {
-    this.createChecked = true;
+  prepareCreate(id: number) {
+    this.createChecked[id] = true;
   }
 
-  cancel() {
-    this.updateChecked = false;
+  cancel(id: number) {
+    this.updateChecked[id] = false;
   }
 }

@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,6 +25,7 @@ import { UserService } from './user/user.service';
 
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   imports: [

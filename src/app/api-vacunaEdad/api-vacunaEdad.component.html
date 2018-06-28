@@ -1,4 +1,4 @@
-<span>
+<div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
     <p>Número de hijos añadidos: {{ vacunaedad?.vacunaedad[1].user.numChildren }}</p>
     <button mat-icon-button (click)="prepareCreate()">
         <mat-icon>add</mat-icon>
@@ -15,135 +15,214 @@
             <mat-icon>save</mat-icon>
         </button>
     </form>
-</span>
-<form fxFlex [style.display]="(vacunaedad?.vacunaedad[1].user.numChildren != 0)?'block':'none'">
-    <mat-form-field>
-        <mat-select placeholder="Edad" [formControl]="edadControl" required>
-            <mat-option *ngFor="let vacunaedad of vacunaedad?.vacunaedad" [value]="vacunaedad">
-                {{ vacunaedad.edad }}
-            </mat-option>
-        </mat-select>
-        <mat-error *ngIf="edadControl.hasError('required')">Elige edad</mat-error>
-    </mat-form-field>
-    <table *ngIf="edadControl.value.vacuna1 != undefined" style="list-style-type:none">
-
-        <tr *ngIf="edadControl?.value.vacuna1 != ''">
-            <td>
-                <mat-checkbox name="vacuna1" [(ngModel)]="edadControl?.value.isVacunated1">
-                    {{ edadControl?.value.vacuna1 }}
-                </mat-checkbox>
-
-                <mat-form-field>
-                    <input matInput [matDatepicker]="date1" placeholder="Fecha" [value]="edadControl?.value.dateVacuna1">
-                    <mat-datepicker-toggle matSuffix [for]="date1"></mat-datepicker-toggle>
-                    <mat-datepicker #date1></mat-datepicker>
-                </mat-form-field>
-                <button mat-icon-button (click)="prepareUpdate(1)">
-                    <mat-icon>edit</mat-icon>
-                </button>
-
-                <div fxLayout="column" fxFlex [style.display]="updateChecked?'block':'none'">
-                    <span>
-                        <mat-form-field>
-                            <input matInput readonly type="number" name="id" [(ngModel)]="updateVacunaEdad.id" placeholder="Id">
-                        </mat-form-field>
-                        <mat-checkbox name="isVacunated1" [(ngModel)]="updateVacunaEdad.isVacunated1">
+</div>
+<div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
+    <form fxFlex [style.display]="(vacunaedad?.vacunaedad[1].user.numChildren != 0)?'block':'none'">
+        <div class="center" fxFlex="50%" fxFlex.gt-sm="100%">
+            <mat-form-field>
+                <mat-select placeholder="Edad" [formControl]="edadControl" required>
+                    <mat-option *ngFor="let vacunaedad of vacunaedad?.vacunaedad" [value]="vacunaedad">
+                        {{ vacunaedad.edad }}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="edadControl.hasError('required')">Elige edad</mat-error>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
+            <table *ngIf="edadControl.value.vacuna1 != undefined" style="list-style-type:none">
+                <tr *ngIf="edadControl?.value.vacuna1 != ''">
+                    <td>
+                        <mat-checkbox name="vacuna1" [(ngModel)]="edadControl?.value.isVacunated1" disabled>
                             {{ edadControl?.value.vacuna1 }}
                         </mat-checkbox>
+
                         <mat-form-field>
-                            <input matInput [matDatepicker]="date1update" name="date1update" placeholder="Fecha" [(ngModel)]="updateVacunaEdad.dateVacuna1">
-                            <mat-datepicker-toggle matSuffix [for]="date1update"></mat-datepicker-toggle>
-                            <mat-datepicker #date1update></mat-datepicker>
+                            <input matInput [matDatepicker]="date1" placeholder="Fecha" [value]="edadControl?.value.dateVacuna1" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="date1"></mat-datepicker-toggle>
+                            <mat-datepicker #date1></mat-datepicker>
                         </mat-form-field>
-
-                        <button mat-icon-button (click)="save(1)">
-                            <mat-icon>save</mat-icon>
+                        <button mat-icon-button (click)="prepareUpdate(1)">
+                            <mat-icon>edit</mat-icon>
                         </button>
-                    </span>
-                    <span class="cancel">
-                        <button mat-icon-button type="submit" (click)="cancel()">
-                            <mat-icon>clear</mat-icon>
+
+                        <div fxLayout="column" fxFlex>
+                            <span>
+                                <mat-form-field>
+                                    <input matInput readonly type="number" name="id" [(ngModel)]="updateVacunaEdad.id" placeholder="Id">
+                                </mat-form-field>
+                                <mat-checkbox name="isVacunated1" [(ngModel)]="updateVacunaEdad.isVacunated1">
+                                    {{ edadControl?.value.vacuna1 }}
+                                </mat-checkbox>
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="date1update" name="date1update" placeholder="Fecha" [(ngModel)]="updateVacunaEdad.dateVacuna1">
+                                    <mat-datepicker-toggle matSuffix [for]="date1update"></mat-datepicker-toggle>
+                                    <mat-datepicker #date1update></mat-datepicker>
+                                </mat-form-field>
+
+                                <button mat-icon-button (click)="save(1)">
+                                    <mat-icon>save</mat-icon>
+                                </button>
+                            </span>
+                            <span class="cancel">
+                                <button mat-icon-button type="submit" (click)="cancel(1)">
+                                    <mat-icon>clear</mat-icon>
+                                </button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr *ngIf="edadControl?.value.vacuna2 != ''">
+                    <td>
+                        <mat-checkbox name="vacuna2" [(ngModel)]="edadControl?.value.isVacunated2" disabled>
+                            {{ edadControl?.value.vacuna2 }}
+                        </mat-checkbox>
+
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="date2" placeholder="Fecha2" [value]="edadControl?.value.dateVacuna2" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="date2"></mat-datepicker-toggle>
+                            <mat-datepicker #date2></mat-datepicker>
+                        </mat-form-field>
+                        <button mat-icon-button (click)="prepareUpdate(2)">
+                            <mat-icon>edit</mat-icon>
                         </button>
-                    </span>
-                </div>
 
-            </td>
-            <td>
+                        <div fxLayout="column">
+                            <span>
+                                <mat-form-field>
+                                    <input matInput readonly type="number" name="id2" [(ngModel)]="updateVacunaEdad.id" placeholder="Id2">
+                                </mat-form-field>
+                                <mat-checkbox name="isVacunated2" [(ngModel)]="updateVacunaEdad.isVacunated2">
+                                    {{ edadControl?.value.vacuna2 }}
+                                </mat-checkbox>
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="date2update" name="date2update" placeholder="Fecha2" [(ngModel)]="updateVacunaEdad.dateVacuna2">
+                                    <mat-datepicker-toggle matSuffix [for]="date2update"></mat-datepicker-toggle>
+                                    <mat-datepicker #date2update></mat-datepicker>
+                                </mat-form-field>
 
-            </td>
-        </tr>
-        <tr *ngIf="edadControl?.value.vacuna2 != ''">
-            <td>
-                <mat-checkbox>
-                    {{ edadControl?.value.vacuna2 }}
-                </mat-checkbox>
-                <button mat-icon-button (click)="prepareUpdate(2)">
-                    <mat-icon>save</mat-icon>
-                </button>
-            </td>
-            <td>
-                <mat-form-field>
-                    <input matInput [matDatepicker]="date2" placeholder="Fecha" [value]="edadControl?.value.dateVacuna2">
-                    <mat-datepicker-toggle matSuffix [for]="date2"></mat-datepicker-toggle>
-                    <mat-datepicker #date2></mat-datepicker>
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr *ngIf="edadControl?.value.vacuna3 != ''">
-            <td>
-                <mat-checkbox>
-                    {{ edadControl?.value.vacuna3 }}
-                </mat-checkbox>
-            </td>
-            <td>
-                <mat-form-field>
-                    <input matInput [matDatepicker]="date3" placeholder="Fecha" [value]="edadControl?.value.dateVacuna3">
-                    <mat-datepicker-toggle matSuffix [for]="date3"></mat-datepicker-toggle>
-                    <mat-datepicker #date3></mat-datepicker>
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr *ngIf="edadControl?.value.vacuna4 != ''">
-            <td>
-                <mat-checkbox>
-                    {{ edadControl?.value.vacuna4 }}
-                </mat-checkbox>
-            </td>
-            <td>
-                <mat-form-field>
-                    <input matInput [matDatepicker]="date4" placeholder="Fecha" [value]="edadControl?.value.dateVacuna4">
-                    <mat-datepicker-toggle matSuffix [for]="date4"></mat-datepicker-toggle>
-                    <mat-datepicker #date4></mat-datepicker>
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr *ngIf="edadControl?.value.vacuna5 != ''">
-            <td>
-                <mat-checkbox>
-                    {{ edadControl?.value.vacuna5 }}
-                </mat-checkbox>
-            </td>
-            <td>
-                <mat-form-field>
-                    <input matInput [matDatepicker]="date5" placeholder="Fecha" [value]="edadControl?.value.dateVacuna5">
-                    <mat-datepicker-toggle matSuffix [for]="date5"></mat-datepicker-toggle>
-                    <mat-datepicker #date5></mat-datepicker>
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr *ngIf="edadControl?.value.vacuna6 != ''">
-            <td>
-                <mat-checkbox>
-                    {{ edadControl?.value.vacuna6 }}
-                </mat-checkbox>
-            </td>
-            <td>
-                <mat-form-field>
-                    <input matInput [matDatepicker]="date6" placeholder="Fecha" [value]="edadControl?.value.dateVacuna6">
-                    <mat-datepicker-toggle matSuffix [for]="date6"></mat-datepicker-toggle>
-                    <mat-datepicker #date6></mat-datepicker>
-                </mat-form-field>
-            </td>
-        </tr>
-    </table>
-</form>
+                                <button mat-icon-button (click)="save(2)">
+                                    <mat-icon>save</mat-icon>
+                                </button>
+                            </span>
+                            <span class="cancel">
+                                <button mat-icon-button type="submit" (click)="cancel(2)">
+                                    <mat-icon>clear</mat-icon>
+                                </button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr *ngIf="edadControl?.value.vacuna3 != ''">
+                    <td>
+                        <mat-checkbox name="vacuna3" [(ngModel)]="edadControl?.value.isVacunated3" disabled>
+                            {{ edadControl?.value.vacuna3 }}
+                        </mat-checkbox>
+
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="date3" placeholder="Fecha3" [value]="edadControl?.value.dateVacuna3" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="date3"></mat-datepicker-toggle>
+                            <mat-datepicker #date3></mat-datepicker>
+                        </mat-form-field>
+                        <button mat-icon-button (click)="prepareUpdate(3)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+                        <div fxLayout="column">
+                            <span>
+                                <mat-form-field>
+                                    <input matInput readonly type="number" name="id3" [(ngModel)]="updateVacunaEdad.id" placeholder="Id3">
+                                </mat-form-field>
+                                <mat-checkbox name="isVacunated3" [(ngModel)]="updateVacunaEdad.isVacunated3">
+                                    {{ edadControl?.value.vacuna3 }}
+                                </mat-checkbox>
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="date3update" name="date3update" placeholder="Fecha3" [(ngModel)]="updateVacunaEdad.dateVacuna3">
+                                    <mat-datepicker-toggle matSuffix [for]="date3update"></mat-datepicker-toggle>
+                                    <mat-datepicker #date3update></mat-datepicker>
+                                </mat-form-field>
+
+                                <button mat-icon-button (click)="save(3)">
+                                    <mat-icon>save</mat-icon>
+                                </button>
+                            </span>
+                            <span class="cancel">
+                                <button mat-icon-button type="submit" (click)="cancel(3)">
+                                    <mat-icon>clear</mat-icon>
+                                </button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr *ngIf="edadControl?.value.vacuna4 != ''">
+                        <td>
+                                <mat-checkbox name="vacuna4" [(ngModel)]="edadControl?.value.isVacunated4" disabled>
+                                    {{ edadControl?.value.vacuna4 }}
+                                </mat-checkbox>
+        
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="date4" placeholder="Fecha4" [value]="edadControl?.value.dateVacuna4" disabled>
+                                    <mat-datepicker-toggle matSuffix [for]="date4"></mat-datepicker-toggle>
+                                    <mat-datepicker #date3></mat-datepicker>
+                                </mat-form-field>
+                                <button mat-icon-button (click)="prepareUpdate(4)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+        
+                                <div fxLayout="column">
+                                    <span>
+                                        <mat-form-field>
+                                            <input matInput readonly type="number" name="id4" [(ngModel)]="updateVacunaEdad.id" placeholder="Id4">
+                                        </mat-form-field>
+                                        <mat-checkbox name="isVacunated4" [(ngModel)]="updateVacunaEdad.isVacunated4">
+                                            {{ edadControl?.value.vacuna4 }}
+                                        </mat-checkbox>
+                                        <mat-form-field>
+                                            <input matInput [matDatepicker]="date4update" name="date4update" placeholder="Fecha4" [(ngModel)]="updateVacunaEdad.dateVacuna4">
+                                            <mat-datepicker-toggle matSuffix [for]="date4update"></mat-datepicker-toggle>
+                                            <mat-datepicker #date4update></mat-datepicker>
+                                        </mat-form-field>
+        
+                                        <button mat-icon-button (click)="save(4)">
+                                            <mat-icon>save</mat-icon>
+                                        </button>
+                                    </span>
+                                    <span class="cancel">
+                                        <button mat-icon-button type="submit" (click)="cancel(4)">
+                                            <mat-icon>clear</mat-icon>
+                                        </button>
+                                    </span>
+                                </div>
+                            </td>
+                </tr>
+                <tr *ngIf="edadControl?.value.vacuna5 != ''">
+                    <td>
+                        <mat-checkbox>
+                            {{ edadControl?.value.vacuna5 }}
+                        </mat-checkbox>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="date5" placeholder="Fecha" [value]="edadControl?.value.dateVacuna5">
+                            <mat-datepicker-toggle matSuffix [for]="date5"></mat-datepicker-toggle>
+                            <mat-datepicker #date5></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr *ngIf="edadControl?.value.vacuna6 != ''">
+                    <td>
+                        <mat-checkbox>
+                            {{ edadControl?.value.vacuna6 }}
+                        </mat-checkbox>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="date6" placeholder="Fecha" [value]="edadControl?.value.dateVacuna6">
+                            <mat-datepicker-toggle matSuffix [for]="date6"></mat-datepicker-toggle>
+                            <mat-datepicker #date6></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
