@@ -1,8 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
-    <h1> {{ vacunaedad?.vacunaedad[1].name }}</h1>
-    <button mat-icon-button (click)="create()">
-        <mat-icon>add</mat-icon>
-    </button>
+    <h1> {{ registroVacunas?.vacunaedad[1].name }}</h1>
     <form [style.display]="createChecked?'block':'none'">
         <mat-form-field name="name">
             <input matInput placeholder="Nombre">
@@ -17,11 +14,11 @@
     </form>
 </div>
 <div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
-    <form fxFlex [style.display]="(vacunaedad?.vacunaedad[1].user.numChildren != 0)?'block':'none'">
+    <form fxFlex [style.display]="(registroVacunas?.vacunaedad[1].user.numChildren != 0)?'block':'none'">
         <div class="center" fxFlex="50%" fxFlex.gt-sm="100%">
             <mat-form-field>
                     <mat-select placeholder="Edad" [formControl]="edadControl" required>
-                        <mat-option *ngFor="let vacunaedad of vacunaedad?.vacunaedad" [value]="vacunaedad">
+                        <mat-option *ngFor="let vacunaedad of registroVacunas?.vacunaedad" [value]="vacunaedad">
                             {{ vacunaedad.edad }}
                         </mat-option>
                     </mat-select>
@@ -47,11 +44,11 @@
 
                         <div fxLayout="column" fxFlex [style.display]="updateChecked[1]?'block':'none'">
                             <span>
-                                <mat-checkbox name="isVacunated1" [(ngModel)]="updateVacunaEdad.isVacunated1">
+                                <mat-checkbox name="isVacunated1" [(ngModel)]="updateRegistroVacunas.isVacunated1">
                                     {{ edadControl?.value.vacuna1 }}
                                 </mat-checkbox>
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="date1update" name="date1update" placeholder="Fecha1" [(ngModel)]="updateVacunaEdad.dateVacuna1">
+                                    <input matInput [matDatepicker]="date1update" name="date1update" placeholder="Fecha1" [(ngModel)]="updateRegistroVacunas.dateVacuna1">
                                     <mat-datepicker-toggle matSuffix [for]="date1update"></mat-datepicker-toggle>
                                     <mat-datepicker #date1update></mat-datepicker>
                                 </mat-form-field>
@@ -86,11 +83,11 @@
 
                         <div fxLayout="column" fxFlex [style.display]="updateChecked[2]?'block':'none'">
                             <span>
-                                <mat-checkbox name="isVacunated2" [(ngModel)]="updateVacunaEdad.isVacunated2">
+                                <mat-checkbox name="isVacunated2" [(ngModel)]="updateRegistroVacunas.isVacunated2">
                                     {{ edadControl?.value.vacuna2 }}
                                 </mat-checkbox>
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="date2update" name="date2update" placeholder="Fecha2" [(ngModel)]="updateVacunaEdad.dateVacuna2">
+                                    <input matInput [matDatepicker]="date2update" name="date2update" placeholder="Fecha2" [(ngModel)]="updateRegistroVacunas.dateVacuna2">
                                     <mat-datepicker-toggle matSuffix [for]="date2update"></mat-datepicker-toggle>
                                     <mat-datepicker #date2update></mat-datepicker>
                                 </mat-form-field>
@@ -124,11 +121,11 @@
 
                         <div fxLayout="column" fxFlex [style.display]="updateChecked[3]?'block':'none'">
                             <span>
-                                <mat-checkbox name="isVacunated3" [(ngModel)]="updateVacunaEdad.isVacunated3">
+                                <mat-checkbox name="isVacunated3" [(ngModel)]="updateRegistroVacunas.isVacunated3">
                                     {{ edadControl?.value.vacuna3 }}
                                 </mat-checkbox>
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="date3update" name="date3update" placeholder="Fecha3" [(ngModel)]="updateVacunaEdad.dateVacuna3">
+                                    <input matInput [matDatepicker]="date3update" name="date3update" placeholder="Fecha3" [(ngModel)]="updateRegistroVacunas.dateVacuna3">
                                     <mat-datepicker-toggle matSuffix [for]="date3update"></mat-datepicker-toggle>
                                     <mat-datepicker #date3update></mat-datepicker>
                                 </mat-form-field>
@@ -163,11 +160,11 @@
 
                         <div fxLayout="column" fxFlex [style.display]="updateChecked[4]?'block':'none'">
                             <span>
-                                <mat-checkbox name="isVacunated4" [(ngModel)]="updateVacunaEdad.isVacunated4">
+                                <mat-checkbox name="isVacunated4" [(ngModel)]="updateRegistroVacunas.isVacunated4">
                                     {{ edadControl?.value.vacuna4 }}
                                 </mat-checkbox>
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="date4update" name="date4update" placeholder="Fecha4" [(ngModel)]="updateVacunaEdad.dateVacuna4">
+                                    <input matInput [matDatepicker]="date4update" name="date4update" placeholder="Fecha4" [(ngModel)]="updateRegistroVacunas.dateVacuna4">
                                     <mat-datepicker-toggle matSuffix [for]="date4update"></mat-datepicker-toggle>
                                     <mat-datepicker #date4update></mat-datepicker>
                                 </mat-form-field>
@@ -201,11 +198,11 @@
 
                         <div fxLayout="column" fxFlex [style.display]="updateChecked[5]?'block':'none'">
                             <span>
-                                <mat-checkbox name="isVacunated5" [(ngModel)]="updateVacunaEdad.isVacunated5">
+                                <mat-checkbox name="isVacunated5" [(ngModel)]="updateRegistroVacunas.isVacunated5">
                                     {{ edadControl?.value.vacuna5 }}
                                 </mat-checkbox>
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="date5update" name="date5update" placeholder="Fecha5" [(ngModel)]="updateVacunaEdad.dateVacuna5">
+                                    <input matInput [matDatepicker]="date5update" name="date5update" placeholder="Fecha5" [(ngModel)]="updateRegistroVacunas.dateVacuna5">
                                     <mat-datepicker-toggle matSuffix [for]="date5update"></mat-datepicker-toggle>
                                     <mat-datepicker #date5update></mat-datepicker>
                                 </mat-form-field>
@@ -239,11 +236,11 @@
 
                         <div fxLayout="column" fxFlex [style.display]="updateChecked[6]?'block':'none'">
                             <span>
-                                <mat-checkbox name="isVacunated6" [(ngModel)]="updateVacunaEdad.isVacunated6">
+                                <mat-checkbox name="isVacunated6" [(ngModel)]="updateRegistroVacunas.isVacunated6">
                                     {{ edadControl?.value.vacuna6 }}
                                 </mat-checkbox>
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="date6update" name="date5update" placeholder="Fecha6" [(ngModel)]="updateVacunaEdad.dateVacuna6">
+                                    <input matInput [matDatepicker]="date6update" name="date5update" placeholder="Fecha6" [(ngModel)]="updateRegistroVacunas.dateVacuna6">
                                     <mat-datepicker-toggle matSuffix [for]="date6update"></mat-datepicker-toggle>
                                     <mat-datepicker #date6update></mat-datepicker>
                                 </mat-form-field>

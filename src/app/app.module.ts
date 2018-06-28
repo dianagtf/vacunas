@@ -11,7 +11,7 @@ import { HttpService } from './core/http.service';
 import { ApiVacunasService } from './api-vacunas/api-vacunas.service';
 import { ApiUsersService } from './api-users/api-users.service';
 import { ApiVacunaUserService } from './api-vacunaUser/api-vacunaUser.service';
-import { ApiVacunaEdadService } from './api-vacunaEdad/api-vacunaEdad.service';
+import { ApiRegistroVacunasService } from './api-registroVacunas/api-registroVacunas.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -47,7 +47,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   bootstrap: [AppComponent],
   providers: [HttpService, ApiVacunasService, ApiUsersService,
-    AlertService, UserService, ApiVacunaUserService, ApiVacunaEdadService]
+    AlertService, UserService, ApiVacunaUserService, ApiRegistroVacunasService]
 
 })
 export class AppModule { }

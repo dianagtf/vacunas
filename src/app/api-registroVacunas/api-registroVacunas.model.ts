@@ -1,6 +1,4 @@
-import { Users } from '../api-users/api-users.model';
-
-export interface VacunaEdad {
+export interface ApiRegistroVacunas {
     id: number;
     name: string;
     age: string;

@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpService } from '../core/http.service';
-import { VacunaEdad } from './api-vacunaEdad.model';
+import { ApiRegistroVacunas } from './api-registroVacunas.model';
 import { Vacunas } from '../api-vacunas/api-vacunas.model';
-import { ApiVacunaEdadService } from './api-vacunaEdad.service';
+import { ApiRegistroVacunasService } from './api-registroVacunas.service';
 import { ApiVacunasService } from '../api-vacunas/api-vacunas.service';
 import { ApiUsersService } from '../api-users/api-users.service';
 import 'rxjs/add/operator/map';
@@ -15,27 +15,27 @@ import { Users } from '../api-users/api-users.model';
 import { MatDialog } from '@angular/material';
 
 @Component({
-  selector: 'app-api-vacunaedad',
-  templateUrl: './api-vacunaedad.component.html',
-  styleUrls: ['api-vacunaedad.component.css'],
+  selector: 'app-apiregistrovacunas',
+  templateUrl: './api-registroVacunas.component.html',
+  styleUrls: ['api-registroVacunas.component.css'],
 })
-export class ApiVacunaEdadComponent implements OnInit {
-  vacunaedad: VacunaEdad[];
+export class ApiRegistroVacunasComponent implements OnInit {
+  registroVacunas: ApiRegistroVacunas[];
   vacunas: Vacunas[];
   updateChecked = [false, false, false, false, false, false];
   createChecked = false;
-  updateVacunaEdad: VacunaEdad;
-  creationVacunaEdad: VacunaEdad;
+  updateRegistroVacunas: ApiRegistroVacunas;
+  creationVacunaEdad: ApiRegistroVacunas;
   user: Users;
-  vacunas1: VacunaEdad;
-  vacunas2: VacunaEdad;
-  vacunas3: VacunaEdad;
-  vacunas4: VacunaEdad;
-  vacunas5: VacunaEdad;
-  vacunas6: VacunaEdad;
-  vacunas7: VacunaEdad;
-  vacunas8: VacunaEdad;
-  vacunas9: VacunaEdad;
+  vacunas1: ApiRegistroVacunas;
+  vacunas2: ApiRegistroVacunas;
+  vacunas3: ApiRegistroVacunas;
+  vacunas4: ApiRegistroVacunas;
+  vacunas5: ApiRegistroVacunas;
+  vacunas6: ApiRegistroVacunas;
+  vacunas7: ApiRegistroVacunas;
+  vacunas8: ApiRegistroVacunas;
+  vacunas9: ApiRegistroVacunas;
 
   edadControl = new FormControl('', [Validators.required]);
   date: FormControl;
@@ -59,13 +59,13 @@ export class ApiVacunaEdadComponent implements OnInit {
   name: string;
 
   constructor(private httpService: HttpService,
-    private apiVacunaEdadService: ApiVacunaEdadService,
+    private apiRegistroVacunasService: ApiRegistroVacunasService,
     private apiVacunasService: ApiVacunasService,
     public dialog: MatDialog,
     private apiUsersService: ApiUsersService) {
    }
   ngOnInit(): void {
-    this.updateVacunaEdad = {
+    this.updateRegistroVacunas = {
       id: 1,
       name: '',
       age: '',
@@ -97,17 +97,17 @@ export class ApiVacunaEdadComponent implements OnInit {
       this.errorMessage = error;
     });
 
-    this.apiVacunaEdadService.getAllVacunaEdad().subscribe((vacunaedad) => {
-      this.vacunaedad = vacunaedad;
+    this.apiRegistroVacunasService.getAllVacunaEdad().subscribe((vacunaedad) => {
+      this.registroVacunas = vacunaedad;
     }, error => {
       this.errorMessage = error;
     });
 
-    this.apiVacunaEdadService.getUpdateVacuna().subscribe(vacunaedad => {
-      this.updateVacunaEdad = vacunaedad;
+    this.apiRegistroVacunasService.getUpdateVacuna().subscribe(vacunaedad => {
+      this.updateRegistroVacunas = vacunaedad;
     });
 
-    this.apiVacunaEdadService.getReadVacunaEdad().subscribe(vacunaedad => alert(vacunaedad.id + ':' + vacunaedad.age));
+    this.apiRegistroVacunasService.getReadVacunaEdad().subscribe(vacunaedad => alert(vacunaedad.id + ':' + vacunaedad.age));
 
     this.vacunas1 = {
       id: 1, name: 'Sara', age: '', edad: '', vacuna1: 'Poliomelitis', vacuna2: 'Difteria-Tétanos-Pertussis',
@@ -169,11 +169,11 @@ export class ApiVacunaEdadComponent implements OnInit {
   }
 
   read(id: number) {
-    this.apiVacunaEdadService.read(id);
+    this.apiRegistroVacunasService.read(id);
   }
 
   delete(id: number) {
-    this.apiVacunaEdadService.delete(id);
+    this.apiRegistroVacunasService.delete(id);
   }
 
   prepareUpdate(id: number, months: string) {
@@ -209,31 +209,31 @@ export class ApiVacunaEdadComponent implements OnInit {
       default:
         this.id_months = 1;
     }
-    this.apiVacunaEdadService.prepareUpdate(this.id_months);
+    this.apiRegistroVacunasService.prepareUpdate(this.id_months);
     this.updateChecked[id] = true;
   }
 
   save(id: number) {
     this.updateChecked[id] = false;
-    this.apiVacunaEdadService.update(this.updateVacunaEdad);
+    this.apiRegistroVacunasService.update(this.updateRegistroVacunas);
 
-    this.apiVacunaEdadService.getAllVacunaEdad().subscribe((vacunaedad) => {
-      this.vacunaedad = vacunaedad;
+    this.apiRegistroVacunasService.getAllVacunaEdad().subscribe((vacunaedad) => {
+      this.registroVacunas = vacunaedad;
     }, error => {
       this.errorMessage = error;
     });
   }
 
   create() {
-    this.apiVacunaEdadService.create(this.vacunas1);
-    /*this.apiVacunaEdadService.create(this.vacunas2);
-    this.apiVacunaEdadService.create(this.vacunas3);
-    this.apiVacunaEdadService.create(this.vacunas4);
-    this.apiVacunaEdadService.create(this.vacunas5);
-    this.apiVacunaEdadService.create(this.vacunas6);
-    this.apiVacunaEdadService.create(this.vacunas7);
-    this.apiVacunaEdadService.create(this.vacunas8);
-    this.apiVacunaEdadService.create(this.vacunas9);*/
+    this.apiRegistroVacunasService.create(this.vacunas1);
+    /*this.apiRegistroVacunasService.create(this.vacunas2);
+    this.apiRegistroVacunasService.create(this.vacunas3);
+    this.apiRegistroVacunasService.create(this.vacunas4);
+    this.apiRegistroVacunasService.create(this.vacunas5);
+    this.apiRegistroVacunasService.create(this.vacunas6);
+    this.apiRegistroVacunasService.create(this.vacunas7);
+    this.apiRegistroVacunasService.create(this.vacunas8);
+    this.apiRegistroVacunasService.create(this.vacunas9);*/
   }
 
   cancel(id: number) {
