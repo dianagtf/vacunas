@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
-    <h1> {{ registroVacunas?.vacunaedad[1].name }}</h1>
+    <h1> {{ registroVacunas?.registrovacunas[1].name }}</h1>
     <form [style.display]="createChecked?'block':'none'">
         <mat-form-field name="name">
             <input matInput placeholder="Nombre">
@@ -14,12 +14,12 @@
     </form>
 </div>
 <div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
-    <form fxFlex [style.display]="(registroVacunas?.vacunaedad[1].user.numChildren != 0)?'block':'none'">
+    <form fxFlex [style.display]="(registroVacunas?.registrovacunas[1].user.numChildren != 0)?'block':'none'">
         <div class="center" fxFlex="50%" fxFlex.gt-sm="100%">
             <mat-form-field>
                     <mat-select placeholder="Edad" [formControl]="edadControl" required>
-                        <mat-option *ngFor="let vacunaedad of registroVacunas?.vacunaedad" [value]="vacunaedad">
-                            {{ vacunaedad.edad }}
+                        <mat-option *ngFor="let registrovacunas of registroVacunas?.registrovacunas" [value]="registrovacunas">
+                            {{ registrovacunas.edad }}
                         </mat-option>
                     </mat-select>
                 <mat-error *ngIf="edadControl.hasError('required')">Elige edad</mat-error>

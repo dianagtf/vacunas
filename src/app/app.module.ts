@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpService } from './core/http.service';
 import { ApiVacunasService } from './api-vacunas/api-vacunas.service';
 import { ApiUsersService } from './api-users/api-users.service';
-import { ApiVacunaUserService } from './api-vacunaUser/api-vacunaUser.service';
 import { ApiRegistroVacunasService } from './api-registroVacunas/api-registroVacunas.service';
 
 import { AppComponent } from './app.component';
@@ -47,7 +46,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   bootstrap: [AppComponent],
   providers: [HttpService, ApiVacunasService, ApiUsersService,
-    AlertService, UserService, ApiVacunaUserService, ApiRegistroVacunasService]
+    AlertService, UserService, ApiRegistroVacunasService]
 
 })
 export class AppModule { }

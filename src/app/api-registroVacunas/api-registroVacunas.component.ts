@@ -25,7 +25,7 @@ export class ApiRegistroVacunasComponent implements OnInit {
   updateChecked = [false, false, false, false, false, false];
   createChecked = false;
   updateRegistroVacunas: ApiRegistroVacunas;
-  creationVacunaEdad: ApiRegistroVacunas;
+  creationRegistroVacunas: ApiRegistroVacunas;
   user: Users;
   vacunas1: ApiRegistroVacunas;
   vacunas2: ApiRegistroVacunas;
@@ -97,17 +97,18 @@ export class ApiRegistroVacunasComponent implements OnInit {
       this.errorMessage = error;
     });
 
-    this.apiRegistroVacunasService.getAllVacunaEdad().subscribe((vacunaedad) => {
-      this.registroVacunas = vacunaedad;
+    this.apiRegistroVacunasService.getAllRegistroVacunas().subscribe((registrovacunas) => {
+      this.registroVacunas = registrovacunas;
     }, error => {
       this.errorMessage = error;
     });
 
-    this.apiRegistroVacunasService.getUpdateVacuna().subscribe(vacunaedad => {
-      this.updateRegistroVacunas = vacunaedad;
+    this.apiRegistroVacunasService.getUpdateVacuna().subscribe(registrovacunas => {
+      this.updateRegistroVacunas = registrovacunas;
     });
 
-    this.apiRegistroVacunasService.getReadVacunaEdad().subscribe(vacunaedad => alert(vacunaedad.id + ':' + vacunaedad.age));
+    this.apiRegistroVacunasService.getReadRegistroVacunas().subscribe(registrovacunas =>
+      alert(registrovacunas.id + ':' + registrovacunas.age));
 
     this.vacunas1 = {
       id: 1, name: 'Sara', age: '', edad: '', vacuna1: 'Poliomelitis', vacuna2: 'Difteria-Tétanos-Pertussis',
@@ -165,7 +166,7 @@ export class ApiRegistroVacunasComponent implements OnInit {
     };*/
 
     this.user = {id: 1, username: 'user1', firstName: 'user1', lastName: 'user1', email: 'user1@gmail.com',
-      password: 'xxx', passwordRepeat: 'xxx', numChildren: 2, childrenBirthday: '13/02/2018'};
+      password: 'xxx', numChildren: 2};
   }
 
   read(id: number) {
@@ -217,8 +218,8 @@ export class ApiRegistroVacunasComponent implements OnInit {
     this.updateChecked[id] = false;
     this.apiRegistroVacunasService.update(this.updateRegistroVacunas);
 
-    this.apiRegistroVacunasService.getAllVacunaEdad().subscribe((vacunaedad) => {
-      this.registroVacunas = vacunaedad;
+    this.apiRegistroVacunasService.getAllRegistroVacunas().subscribe((registrovacunas) => {
+      this.registroVacunas = registrovacunas;
     }, error => {
       this.errorMessage = error;
     });

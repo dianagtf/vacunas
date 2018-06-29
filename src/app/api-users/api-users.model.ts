@@ -5,7 +5,5 @@ export interface Users {
     lastName: string;
     email: string;
     password: string;
-    passwordRepeat: string;
     numChildren: number;
-    childrenBirthday: string;
 }

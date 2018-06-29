@@ -6,19 +6,19 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ApiRegistroVacunasService {
-    static URI = '/vacunaedad';
+    static URI = '/registrovacunas';
 
-    private readVacunaEdad: Subject<ApiRegistroVacunas> = new Subject();
+    private readRegistroVacunas: Subject<ApiRegistroVacunas> = new Subject();
 
     private updateRegistroVacunas: Subject<ApiRegistroVacunas> = new Subject();
 
-    private allVacunaEdad: Subject<ApiRegistroVacunas[]> = new Subject();
+    private allRegistroVacunas: Subject<ApiRegistroVacunas[]> = new Subject();
 
     constructor(private httpService: HttpService) { }
 
-    getAllVacunaEdad(): Observable<ApiRegistroVacunas[]> {
+    getAllRegistroVacunas(): Observable<ApiRegistroVacunas[]> {
         this.readAll();
-        return this.allVacunaEdad.asObservable();
+        return this.allRegistroVacunas.asObservable();
     }
 
     getUpdateVacuna(): Observable<ApiRegistroVacunas> {
@@ -27,18 +27,18 @@ export class ApiRegistroVacunasService {
 
     prepareUpdate(id: number) {
         this.httpService.get(ApiRegistroVacunasService.URI + '/' + id).subscribe(
-            (vacunaEdadArray: ApiRegistroVacunas) => this.updateRegistroVacunas.next(vacunaEdadArray),
+            (registroVacunasArray: ApiRegistroVacunas) => this.updateRegistroVacunas.next(registroVacunasArray),
             error => alert(error)
         );
     }
 
-    getReadVacunaEdad(): Observable<ApiRegistroVacunas> {
-        return this.readVacunaEdad.asObservable();
+    getReadRegistroVacunas(): Observable<ApiRegistroVacunas> {
+        return this.readRegistroVacunas.asObservable();
     }
 
     read(id: number) {
         this.httpService.get(ApiRegistroVacunasService.URI + '/' + id).subscribe(
-            (vacunaEdadValue: ApiRegistroVacunas) => this.readVacunaEdad.next(vacunaEdadValue),
+            (registroVacunasValue: ApiRegistroVacunas) => this.readRegistroVacunas.next(registroVacunasValue),
             error => alert(error),
         );
     }
@@ -46,7 +46,7 @@ export class ApiRegistroVacunasService {
 
     private readAll() {
         this.httpService.get(ApiRegistroVacunasService.URI).subscribe(
-            (vacunaEdadArray: ApiRegistroVacunas[]) => this.allVacunaEdad.next(vacunaEdadArray),
+            (registroVacunasArray: ApiRegistroVacunas[]) => this.allRegistroVacunas.next(registroVacunasArray),
             error => alert(error)
         );
     }
@@ -58,15 +58,15 @@ export class ApiRegistroVacunasService {
         );
     }
 
-    create(vacunaedad: ApiRegistroVacunas) {
-        this.httpService.post(ApiRegistroVacunasService.URI, vacunaedad).subscribe(
+    create(registroVacunas: ApiRegistroVacunas) {
+        this.httpService.post(ApiRegistroVacunasService.URI, registroVacunas).subscribe(
             () => this.readAll(),
             error => alert(error)
         );
     }
 
-    update(vacunaedad: ApiRegistroVacunas) {
-        this.httpService.put(ApiRegistroVacunasService.URI + '/' + vacunaedad.id, vacunaedad).subscribe(
+    update(registroVacunas: ApiRegistroVacunas) {
+        this.httpService.put(ApiRegistroVacunasService.URI + '/' + registroVacunas.id, registroVacunas).subscribe(
             () => this.readAll(),
             error => alert(error)
         );
