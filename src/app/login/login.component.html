@@ -1,16 +1,15 @@
 <div class="containerLogin">
-    <mat-form-field>
-        <label for="username">Nombre de usuario</label>
-        <input matInput name="username" [(ngModel)]="user.username" #username="ngModel" required/>
-    </mat-form-field>
-
-    <mat-form-field>
-        <label for="password">Contraseña</label>
-        <input matInput type="password" name="password" [(ngModel)]="user.password" #password="ngModel" />
-    </mat-form-field>
-    <div class="button-row">
-        <button mat-raised-button color="accent" (click)="login()" [disabled]="user.username === '' || user.password === ''">
-            Inicio
-        </button>
-    </div>
+    <mat-card-title class="title">
+        Acceso a calendario de vacunación
+    </mat-card-title>
+    <mat-card class="card">
+        <mat-tab-group>
+            <mat-tab label="Inicio de sesión">
+                <app-signin></app-signin>
+            </mat-tab>
+            <mat-tab label="Registro">
+                <app-signup></app-signup>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
 </div>

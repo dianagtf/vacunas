@@ -8,17 +8,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
     moduleId: module.id.toString(),
-    templateUrl: 'register.component.html',
-    selector: 'app-register',
-    styleUrls: ['./register.component.css']
+    templateUrl: 'signup.component.html',
+    selector: 'app-signup',
+    styleUrls: ['./signup.component.css']
 })
 
-export class RegisterComponent implements OnInit {
+export class SignUpComponent implements OnInit {
     users: Users[];
     loading = false;
     updateUser: Users;
     creationUsers: Users;
-    returnUrl: 'register';
+    returnUrl: 'signup';
     updateChecked = false;
 
     constructor(
@@ -28,8 +28,7 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         // reset login status
-        this.creationUsers = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '', passwordRepeat: '',
-                     numChildren: 0, childrenBirthday: ''};
+        this.creationUsers = { id: 4, username: '', firstName: '', lastName: '', email: '', password: '', numChildren: 0};
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }

@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
-  templateUrl: './children.component.html'
+  templateUrl: './children.component.html',
+  styleUrls: ['children.component.css']
 })
 export class ChildrenComponent  { }
