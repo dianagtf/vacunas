@@ -20,7 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 
 import { AlertService } from './core/alert.service';
-import { UserService } from './user/user.service';
 
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -46,7 +45,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   bootstrap: [AppComponent],
   providers: [HttpService, ApiVacunasService, ApiUsersService,
-    AlertService, UserService, ApiRegistroVacunasService]
+    AlertService, ApiRegistroVacunasService]
 
 })
 export class AppModule { }
