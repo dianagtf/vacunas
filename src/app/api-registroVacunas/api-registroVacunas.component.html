@@ -29,12 +29,12 @@
             <table *ngIf="edadControl.value.vacuna1 != undefined" style="list-style-type:none">
                 <tr *ngIf="edadControl?.value.vacuna1 != ''">
                     <td>
-                        <mat-checkbox name="vacuna1" [(ngModel)]="edadControl?.value.isVacunated1">
+                        <mat-checkbox name="vacuna1" [(ngModel)]="edadControl?.value.isVacunated1" disabled>
                             {{ edadControl?.value.vacuna1 }}
                         </mat-checkbox>
 
                         <mat-form-field>
-                            <input matInput [matDatepicker]="date1" placeholder="Fecha" [value]="edadControl?.value.dateVacuna1">
+                            <input matInput [matDatepicker]="date1" placeholder="Fecha" [value]="edadControl?.value.dateVacuna1" disabled>
                             <mat-datepicker-toggle matSuffix [for]="date1"></mat-datepicker-toggle>
                             <mat-datepicker #date1></mat-datepicker>
                         </mat-form-field>
@@ -68,12 +68,12 @@
 
                 <tr *ngIf="edadControl?.value.vacuna2 != ''">
                     <td>
-                        <mat-checkbox name="vacuna2" [(ngModel)]="edadControl?.value.isVacunated2">
+                        <mat-checkbox name="vacuna2" [(ngModel)]="edadControl?.value.isVacunated2" disabled>
                             {{ edadControl?.value.vacuna2 }}
                         </mat-checkbox>
 
                         <mat-form-field>
-                            <input matInput [matDatepicker]="date2" placeholder="Fecha" [value]="edadControl?.value.dateVacuna2">
+                            <input matInput [matDatepicker]="date2" placeholder="Fecha" [value]="edadControl?.value.dateVacuna2" disabled>
                             <mat-datepicker-toggle matSuffix [for]="date2"></mat-datepicker-toggle>
                             <mat-datepicker #date2></mat-datepicker>
                         </mat-form-field>
@@ -106,12 +106,12 @@
                 </tr>
                 <tr *ngIf="edadControl?.value.vacuna3 != ''">
                     <td>
-                        <mat-checkbox name="vacuna3" [(ngModel)]="edadControl?.value.isVacunated3">
+                        <mat-checkbox name="vacuna3" [(ngModel)]="edadControl?.value.isVacunated3" disabled>
                             {{ edadControl?.value.vacuna3 }}
                         </mat-checkbox>
 
                         <mat-form-field>
-                            <input matInput [matDatepicker]="date3" placeholder="Fecha" [value]="edadControl?.value.dateVacuna3">
+                            <input matInput [matDatepicker]="date3" placeholder="Fecha" [value]="edadControl?.value.dateVacuna3" disabled>
                             <mat-datepicker-toggle matSuffix [for]="date3"></mat-datepicker-toggle>
                             <mat-datepicker #date3></mat-datepicker>
                         </mat-form-field>
@@ -145,12 +145,12 @@
 
                 <tr *ngIf="edadControl?.value.vacuna4 != ''">
                     <td>
-                        <mat-checkbox name="vacuna4" [(ngModel)]="edadControl?.value.isVacunated4">
+                        <mat-checkbox name="vacuna4" [(ngModel)]="edadControl?.value.isVacunated4" disabled>
                             {{ edadControl?.value.vacuna4 }}
                         </mat-checkbox>
 
                         <mat-form-field>
-                            <input matInput [matDatepicker]="date4" placeholder="Fecha" [value]="edadControl?.value.dateVacuna4">
+                            <input matInput [matDatepicker]="date4" placeholder="Fecha" [value]="edadControl?.value.dateVacuna4" disabled>
                             <mat-datepicker-toggle matSuffix [for]="date4"></mat-datepicker-toggle>
                             <mat-datepicker #date4></mat-datepicker>
                         </mat-form-field>
@@ -183,12 +183,12 @@
                 </tr>
                 <tr *ngIf="edadControl?.value.vacuna5 != ''">
                     <td>
-                        <mat-checkbox name="vacuna5" [(ngModel)]="edadControl?.value.isVacunated5">
+                        <mat-checkbox name="vacuna5" [(ngModel)]="edadControl?.value.isVacunated5" disabled>
                             {{ edadControl?.value.vacuna5 }}
                         </mat-checkbox>
 
                         <mat-form-field>
-                            <input matInput [matDatepicker]="date5" placeholder="Fecha" [value]="edadControl?.value.dateVacuna5">
+                            <input matInput [matDatepicker]="date5" placeholder="Fecha" [value]="edadControl?.value.dateVacuna5" disabled>
                             <mat-datepicker-toggle matSuffix [for]="date5"></mat-datepicker-toggle>
                             <mat-datepicker #date5></mat-datepicker>
                         </mat-form-field>
@@ -221,12 +221,12 @@
                 </tr>
                 <tr *ngIf="edadControl?.value.vacuna6 != ''">
                     <td>
-                        <mat-checkbox name="vacuna6" [(ngModel)]="edadControl?.value.isVacunated6">
+                        <mat-checkbox name="vacuna6" [(ngModel)]="edadControl?.value.isVacunated6" disabled>
                             {{ edadControl?.value.vacuna6 }}
                         </mat-checkbox>
 
                         <mat-form-field>
-                            <input matInput [matDatepicker]="date6" placeholder="Fecha" [value]="edadControl?.value.dateVacuna6">
+                            <input matInput [matDatepicker]="date6" placeholder="Fecha" [value]="edadControl?.value.dateVacuna6" disabled>
                             <mat-datepicker-toggle matSuffix [for]="date6"></mat-datepicker-toggle>
                             <mat-datepicker #date6></mat-datepicker>
                         </mat-form-field>
