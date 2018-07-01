@@ -8,6 +8,7 @@ import { ApiUsersService } from '../api-users/api-users.service';
 import 'rxjs/add/operator/map';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { Router } from '@angular/router';
 
 import { FormControl, Validators } from '@angular/forms';
 import { Users } from '../api-users/api-users.model';
@@ -62,7 +63,8 @@ export class ApiRegistroVacunasComponent implements OnInit {
     private apiRegistroVacunasService: ApiRegistroVacunasService,
     private apiVacunasService: ApiVacunasService,
     public dialog: MatDialog,
-    private apiUsersService: ApiUsersService) {
+    private apiUsersService: ApiUsersService,
+    private router: Router) {
    }
   ngOnInit(): void {
     this.updateRegistroVacunas = {
@@ -90,7 +92,6 @@ export class ApiRegistroVacunasComponent implements OnInit {
       dateVacuna6: ''
     };
 
-    // this.apiVacunasService.getAllVacunas().subscribe(vacunas => this.vacunas = vacunas);
     this.apiVacunasService.getAllVacunas().subscribe((vacunas) => {
       this.vacunas = vacunas;
     }, error => {
@@ -116,54 +117,6 @@ export class ApiRegistroVacunasComponent implements OnInit {
       isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
       dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
     };
-    /*this.vacunas2 = {
-      id: 1, user: this.user, name: 'Sara', age: '', edad: '', vacuna1: 'Poliomelitis', vacuna2: 'Difteria-Tétanos-Pertussis',
-      vacuna3: 'Haemophilus influenzae b', vacuna4: 'Hepatitis B', vacuna5: 'Neumocócica conjugada 13V', vacuna6: 'Meningococo C',
-      isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
-      dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
-    };
-    this.vacunas3 = {
-      id: 1, user: this.user, name: 'Sara', age: '', edad: '', vacuna1: 'Poliomelitis', vacuna2: 'Difteria-Tétanos-Pertussis',
-      vacuna3: 'Haemophilus influenzae b', vacuna4: 'Hepatitis B', vacuna5: 'Neumocócica conjugada 13V', vacuna6: '',
-      isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
-      dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
-    };
-    this.vacunas4 = {
-      id: 1, user: this.user, name: 'Sara', age: '', edad: '', vacuna1: 'Sarampión-Rubeola-Parotiditis',
-      vacuna2: 'Meningococo C', vacuna3: '', vacuna4: '', vacuna5: '', vacuna6: '',
-      isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
-      dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
-    };
-    this.vacunas5 = {
-      id: 1, user: this.user, name: 'Sara', age: '', edad: '', vacuna1: 'Varicela', vacuna2: '', vacuna3: '', vacuna4: '',
-      vacuna5: '', vacuna6: '',
-      isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
-      dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
-    };
-    this.vacunas6 = {
-      id: 1, user: this.user, name: 'Sara', age: '', edad: '', vacuna1: 'Sarampión-Rubeola-Parotiditis', vacuna2: 'Varicela',
-      vacuna3: '', vacuna4: '', vacuna5: '', vacuna6: '',
-      isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
-      dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
-    };
-    this.vacunas7 = {
-      id: 1, user: '1', name: 'Sara', age: '', edad: '', vacuna1: 'Difteria-Tétanos-Pertussis', vacuna2: '',
-      vacuna3: '', vacuna4: '', vacuna5: '', vacuna6: '',
-      isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
-      dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
-    };
-    this.vacunas8 = {
-      id: 1, user: this.user, name: 'Sara', age: '', edad: '', vacuna1: 'Meningococo C', vacuna2: 'Varicela',
-      vacuna3: 'Virus del Papiloma Humano', vacuna4: '', vacuna5: '', vacuna6: '',
-      isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
-      dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
-    };
-    this.vacunas9 = {
-      id: 1, user: this.user, name: 'Sara', age: '', edad: '', vacuna1: 'Difteria-Tétanos-Pertussis', vacuna2: '',
-      vacuna3: '', vacuna4: '', vacuna5: '', vacuna6: '',
-      isVacunated1: false, isVacunated2: false, isVacunated3: false, isVacunated4: false, isVacunated5: false, isVacunated6: false,
-      dateVacuna1: '', dateVacuna2: '', dateVacuna3: '', dateVacuna4: '', dateVacuna5: '', dateVacuna6: ''
-    };*/
 
     this.user = {id: 1, username: 'user1', firstName: 'user1', lastName: 'user1', email: 'user1@gmail.com',
       password: 'xxx', numChildren: 2};
@@ -178,7 +131,6 @@ export class ApiRegistroVacunasComponent implements OnInit {
   }
 
   prepareUpdate(id: number, months: string) {
-
     switch (months) {
       case 'twoMonts':
         this.id_months = 1;
@@ -219,7 +171,8 @@ export class ApiRegistroVacunasComponent implements OnInit {
     this.apiRegistroVacunasService.update(this.updateRegistroVacunas);
 
     this.apiRegistroVacunasService.getAllRegistroVacunas().subscribe((registrovacunas) => {
-      this.registroVacunas = registrovacunas;
+      this.registroVacunas = registrovacunas,
+      this.router.navigate(['/children']);
     }, error => {
       this.errorMessage = error;
     });
@@ -227,14 +180,6 @@ export class ApiRegistroVacunasComponent implements OnInit {
 
   create() {
     this.apiRegistroVacunasService.create(this.vacunas1);
-    /*this.apiRegistroVacunasService.create(this.vacunas2);
-    this.apiRegistroVacunasService.create(this.vacunas3);
-    this.apiRegistroVacunasService.create(this.vacunas4);
-    this.apiRegistroVacunasService.create(this.vacunas5);
-    this.apiRegistroVacunasService.create(this.vacunas6);
-    this.apiRegistroVacunasService.create(this.vacunas7);
-    this.apiRegistroVacunasService.create(this.vacunas8);
-    this.apiRegistroVacunasService.create(this.vacunas9);*/
   }
 
   cancel(id: number) {

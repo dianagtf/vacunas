@@ -78,7 +78,4 @@ export class ApiVacunasComponent implements OnInit {
     this.updateChecked = false;
   }
 
-  back() {
-    this.router.navigate(['/', 'index']);
-  }
 }
